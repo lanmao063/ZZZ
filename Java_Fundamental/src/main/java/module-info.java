@@ -1,10 +1,19 @@
 module cn.edu.neu.java_fundamental {
     requires javafx.controls;
     requires javafx.fxml;
+    requires static lombok;
 
 
     opens cn.edu.neu.java_fundamental to javafx.fxml;
     exports cn.edu.neu.java_fundamental;
+
     opens cn.edu.neu.java_fundamental.controllers to javafx.fxml;
     exports cn.edu.neu.java_fundamental.controllers;
+
+    opens cn.edu.neu.java_fundamental.entity to javafx.fxml;
+    exports cn.edu.neu.java_fundamental.entity;
+
+
+
+
 }
