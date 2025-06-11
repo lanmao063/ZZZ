@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane fx:controller="cn.edu.neu.java_fundamental.controllers.MainViewController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="68.0" prefWidth="1360.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="67.0" prefWidth="262.0" text="东软环保监督平台">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox fx:id="AsideMenu" prefHeight="660.0" prefWidth="260.0" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <HBox prefHeight="768.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <center>
+      <Pane fx:id="centerPane" prefHeight="660.0" prefWidth="1100.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
