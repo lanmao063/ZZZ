@@ -12,6 +12,8 @@ module cn.edu.neu.java_fundamental {
 
     opens cn.edu.neu.java_fundamental.entity to javafx.fxml;
     exports cn.edu.neu.java_fundamental.entity;
+    opens cn.edu.neu.java_fundamental.util to javafx.fxml;
+    exports cn.edu.neu.java_fundamental.util;
 
 
 
