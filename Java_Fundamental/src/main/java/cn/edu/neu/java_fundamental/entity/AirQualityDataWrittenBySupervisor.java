@@ -21,6 +21,9 @@ public class AirQualityDataWrittenBySupervisor {
         this.date = new Date();
     }
 
+    /**
+     *监督员只能估计空气质量等级AQL，不能给出具体数值
+     */
     public AirQualityDataWrittenBySupervisor(AirQualityLevel AQL, String province, String city, String district, Date date)
     {
         this.AQL = AQL;

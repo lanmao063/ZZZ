@@ -17,6 +17,10 @@ public class AirQualityDataWrittenByGrider extends AirQualityDataWrittenBySuperv
     public AirQualityDataWrittenByGrider() {
         super();
     }
+
+    /**
+     * AQI和AQL会自动计算
+     */
     public AirQualityDataWrittenByGrider(String province, String city, String district, Date date, double so2_concentration, double co_concentration, double spm_concentration) {
         super(AirQualityLevel.EXCELLENT, province, city, district, date);
         this.so2_concentration = so2_concentration;
