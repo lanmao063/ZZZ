@@ -1,12 +1,13 @@
 package cn.edu.neu.java_fundamental.entity;
 
+import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
 public class AirQualityDataWrittenBySupervisor {
-    private AirQualityLevel  AQL;
+    private AirQualityLevel AQL;
     private String province;
     private String city;
     private String district;

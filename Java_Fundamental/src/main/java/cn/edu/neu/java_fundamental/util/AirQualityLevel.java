@@ -1,6 +1,5 @@
-package cn.edu.neu.java_fundamental.entity;
+package cn.edu.neu.java_fundamental.util;
 
-import cn.edu.neu.java_fundamental.util.AQI_Calculator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

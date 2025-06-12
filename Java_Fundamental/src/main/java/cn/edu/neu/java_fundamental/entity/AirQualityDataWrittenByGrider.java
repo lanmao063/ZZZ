@@ -1,5 +1,6 @@
 package cn.edu.neu.java_fundamental.entity;
 
+import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
