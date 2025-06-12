@@ -1,5 +1,6 @@
 package cn.edu.neu.java_fundamental.entity;
 
+import cn.edu.neu.java_fundamental.util.AQI_Calculator;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -77,7 +78,7 @@ public enum AirQualityLevel {
      * @return AQL等级
      */
 
-    public static AirQualityLevel getAQL_by_polluant(){
-        return null;
+    public static AirQualityLevel getAQL_by_polluant(double so2_concentration,double co_concentration,double spm_concentration){
+        return getAQL_by_aqi(AQI_Calculator.calculateAQI_forAllPollutants(so2_concentration,co_concentration,spm_concentration));
     }
 }
