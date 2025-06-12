@@ -17,6 +17,7 @@ public class AirQualityData {
     private String district;
     private double so2_concentration;
     private double co_concentration;
+    private double spm_concentration;
 
     Date date;
 }

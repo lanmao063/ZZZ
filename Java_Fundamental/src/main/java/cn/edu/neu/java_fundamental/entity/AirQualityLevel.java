@@ -42,7 +42,7 @@ public enum AirQualityLevel {
 
     /**
      * 根据aql数字等级返回对应的AQI等级
-     * @param aql_id
+     * @param aql_id aql数字等级
      * @return AQL等级
      */
 
@@ -58,7 +58,7 @@ public enum AirQualityLevel {
 
     /**
      * 根据AQI返回对应的AQI等级
-     * @param aqi
+     * @param aqi AQI
      * @return AQL等级
      */
 
@@ -74,11 +74,13 @@ public enum AirQualityLevel {
 
     /**
      * 根据污染物返回对应的AQI等级
-     * @param
+     * @param so2_concentration so2浓度
+     * @param co_concentration co浓度
+     * @param spm_concentration spm浓度
      * @return AQL等级
      */
 
-    public static AirQualityLevel getAQL_by_polluant(double so2_concentration,double co_concentration,double spm_concentration){
+    public static AirQualityLevel getAQL_by_pollutant(double so2_concentration,double co_concentration,double spm_concentration){
         return getAQL_by_aqi(AQI_Calculator.calculateAQI_forAllPollutants(so2_concentration,co_concentration,spm_concentration));
     }
 }
