@@ -18,11 +18,48 @@ public enum AirQualityLevel {
 
 
 
-    int aqi_id;
+    int aql_id;
     String chinese_explain;
     String color;
     String health_impact;
     String takes_steps;
     int max_aqi;
     int min_aqi;
+
+    @Override
+    public String toString() {
+        return "AirQualityLevel{" +
+                "aql_id=" + aql_id +
+                ", chinese_explain='" + chinese_explain + '\'' +
+                ", color='" + color + '\'' +
+                ", health_impact='" + health_impact + '\'' +
+                ", takes_steps='" + takes_steps + '\'' +
+                ", max_aqi=" + max_aqi +
+                ", min_aqi=" + min_aqi +
+                '}';
+    }
+
+
+    public static AirQualityLevel getAQL_by_aql(int aql_id){
+        for(AirQualityLevel level:AirQualityLevel.values()){
+            if(aql_id==level.aql_id)
+                return level;
+        }
+        throw new IllegalArgumentException("该AQI不在当前等级分类之中");
+
+    }
+
+    public static AirQualityLevel getAQL_by_aqi(int aqi){
+        for(AirQualityLevel level: AirQualityLevel.values()){
+            if(aqi<=level.max_aqi&&aqi>=level.min_aqi){
+                return level;
+            }
+        }
+
+        return aqi>500? SEVERE_POLLUTED:EXCELLENT;
+    }
+
+    public static AirQualityLevel getAQL_by_polluant(){
+        return null;
+    }
 }
