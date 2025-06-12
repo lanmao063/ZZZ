@@ -17,8 +17,6 @@ public enum AirQualityLevel {
     HEAVY_POLLUTED(5, "重度污染","Purple","心脏病、肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状","儿童、老年人及心脏病、肺病患者应停留在室内，停止户外运动，一般人群减少户外运动",201,300),
     SEVERE_POLLUTED(6, "严重污染","Brown","健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病","儿童、老年人和病人应当留在室内，避免体力消耗，一般人群应避免户外活动",301,500);
 
-
-
     int aql_id;
     String chinese_explain;
     String color;

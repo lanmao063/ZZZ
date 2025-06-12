@@ -31,7 +31,7 @@ public class AQI_Calculator {
             throw new IllegalArgumentException("输入的种类不在当前范围之内");
 
 
-        double[ ] singlePollutant_THRESHOLDS=CONCENTRATION_THRESHOLDS[type];
+        double[] singlePollutant_THRESHOLDS=CONCENTRATION_THRESHOLDS[type];
         double AQI=0;
 
         if(concentration<=singlePollutant_THRESHOLDS[0])
@@ -50,7 +50,7 @@ public class AQI_Calculator {
     }
 
     public static int calculateAQI_forAllPollutants(double so2_concentration,double co_concentration,double spm_concentration){
-        int aqi0=0,aqi1=0,aqi2=0;
+        int aqi0,aqi1,aqi2;
         aqi0= AQI_Calculator.calculateAQI_forSinglePollutant(0,so2_concentration);
         aqi1= AQI_Calculator.calculateAQI_forSinglePollutant(1,co_concentration);
         aqi2= AQI_Calculator.calculateAQI_forSinglePollutant(2,spm_concentration);
