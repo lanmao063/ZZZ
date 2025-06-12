@@ -39,6 +39,11 @@ public enum AirQualityLevel {
                 '}';
     }
 
+    /**
+     * 根据aql数字等级返回对应的AQI等级
+     * @param aql_id
+     * @return AQL等级
+     */
 
     public static AirQualityLevel getAQL_by_aql(int aql_id){
         for(AirQualityLevel level:AirQualityLevel.values()){
@@ -49,6 +54,13 @@ public enum AirQualityLevel {
 
     }
 
+
+    /**
+     * 根据AQI返回对应的AQI等级
+     * @param aqi
+     * @return AQL等级
+     */
+
     public static AirQualityLevel getAQL_by_aqi(int aqi){
         for(AirQualityLevel level: AirQualityLevel.values()){
             if(aqi<=level.max_aqi&&aqi>=level.min_aqi){
@@ -58,6 +70,12 @@ public enum AirQualityLevel {
 
         return aqi>500? SEVERE_POLLUTED:EXCELLENT;
     }
+
+    /**
+     * 根据污染物返回对应的AQI等级
+     * @param
+     * @return AQL等级
+     */
 
     public static AirQualityLevel getAQL_by_polluant(){
         return null;
