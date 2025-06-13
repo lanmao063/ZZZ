@@ -6,7 +6,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
-@Getter @Setter
+@Data
 public class Supervisor{
     private String id;
     private String password;
