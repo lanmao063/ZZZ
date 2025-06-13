@@ -6,12 +6,12 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
+@Getter @Setter
 public class Supervisor{
-    @Getter @Setter
-    private String name;
-    private String sex;
     private String id;
     private String password;
+    private String name;
+    private String sex;
     private int score;
 
 }
