@@ -1,5 +1,7 @@
 package cn.edu.neu.java_fundamental.util;
 
-public class GlobalData {
+import javafx.stage.Stage;
 
+public class GlobalData {
+    public static Stage primaryStage=null ;
 }
