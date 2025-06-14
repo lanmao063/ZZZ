@@ -17,12 +17,11 @@ public class Supervisordao {
         supervisors.add(supervisor);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(supervisors);
-        int i = FileTools.writeStringToFile(SUPERVISOR_FILE, json);
-        return i;
+        return FileTools.writeStringToFile(SUPERVISOR_FILE, json);
         }
 
 
-    private void readSupervisors() throws IOException {
+    private void readSupervisors() {
         try{
             String json=FileTools.readStringFromFile(SUPERVISOR_FILE);
             ObjectMapper mapper = new ObjectMapper();
@@ -30,6 +29,7 @@ public class Supervisordao {
         }
        catch(IOException e){
             supervisors = new ArrayList<>();
+            System.out.println("readSupervisors failed "+e.getMessage());
 
         }
 
@@ -43,6 +43,12 @@ public class Supervisordao {
             }
         }
         return null;
+    }
+
+    public List<Supervisor> getAllSupervisors() throws IOException {
+        if (supervisors==null)
+            readSupervisors();
+        return supervisors;
     }
 }
 

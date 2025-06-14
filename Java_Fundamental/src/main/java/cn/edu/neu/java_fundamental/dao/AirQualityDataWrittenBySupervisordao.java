@@ -1,8 +1,6 @@
 package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
-import cn.edu.neu.java_fundamental.entity.Supervisor;
-import cn.edu.neu.java_fundamental.util.FileTools;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -14,7 +12,7 @@ import java.util.List;
 
 public class AirQualityDataWrittenBySupervisordao {
     private static final String FILE_PATH = "data/AirQualityDataWrittenBySupervisor.json";
-    private List<AirQualityDataWrittenBySupervisor> dataList; // 持久化数据列表
+    private List<AirQualityDataWrittenBySupervisor> dataList=null; // 持久化数据列表
     private final ObjectMapper mapper = new ObjectMapper();
 
     // 构造方法中初始化时直接加载文件数据
