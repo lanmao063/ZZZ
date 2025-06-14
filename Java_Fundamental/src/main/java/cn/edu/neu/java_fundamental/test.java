@@ -11,7 +11,7 @@ import java.io.IOException;
         @Override
         public void start(Stage stage) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(cn.edu.neu.java_fundamental.test.class.getResource("ChooseAQI.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+            Scene scene = new Scene(fxmlLoader.load(), 1100, 660);
             stage.setTitle("登录");
             stage.setScene(scene);
             stage.show();

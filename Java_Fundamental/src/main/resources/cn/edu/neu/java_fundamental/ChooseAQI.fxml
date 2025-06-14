@@ -4,12 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.ChooseAQI_Controller">
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.ChooseAQI_Controller">
    <children>
-      <VBox prefHeight="236.0" prefWidth="100.0">
+      <VBox layoutX="461.0" prefHeight="236.0" prefWidth="96.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="100.0" text="一" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="100.0" text="二" />
@@ -19,48 +22,68 @@
             <Label alignment="CENTER" prefHeight="38.0" prefWidth="100.0" text="六" />
          </children>
       </VBox>
-      <VBox layoutX="91.0" prefHeight="236.0" prefWidth="100.0">
+      <VBox layoutX="542.0" prefHeight="236.0" prefWidth="100.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="100.0" text="优" />
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="100.0" text="良" />
             <Label alignment="CENTER" prefHeight="38.0" prefWidth="100.0" text="轻度污染" />
-            <Label alignment="CENTER" prefHeight="38.0" prefWidth="100.0" text="中度污染" />
+            <Label alignment="CENTER" prefHeight="38.0" prefWidth="212.0" text="中度污染" />
             <Label alignment="CENTER" prefHeight="37.0" prefWidth="100.0" text="重度污染" />
             <Label alignment="CENTER" prefHeight="47.0" prefWidth="100.0" text="严重污染" />
          </children>
       </VBox>
-      <Button fx:id="submit" layoutX="273.0" layoutY="351.0" mnemonicParsing="false" onAction="#Submit" text="提交" />
-      <VBox layoutY="270.0" prefHeight="70.0" prefWidth="600.0">
+      <Button fx:id="submit" layoutX="484.0" layoutY="586.0" mnemonicParsing="false" onAction="#Submit" prefHeight="26.0" prefWidth="141.0" text="提交" />
+      <VBox layoutY="308.0" prefHeight="257.0" prefWidth="1100.0">
          <children>
             <Label text="请填写反馈信息：" />
-            <TextField alignment="TOP_LEFT" prefHeight="119.0" prefWidth="600.0" promptText="请填写反馈信息：" />
+            <TextField alignment="TOP_LEFT" prefHeight="287.0" prefWidth="1100.0" promptText="请填写反馈信息：" />
          </children>
       </VBox>
-      <VBox layoutX="183.0" prefHeight="236.0" prefWidth="417.0">
+      <VBox layoutX="655.0" prefHeight="236.0" prefWidth="444.0">
          <children>
             <Label prefHeight="38.0" prefWidth="417.0" text="空气质量令人满意，基本无空气污染" />
-            <Label prefHeight="38.0" prefWidth="417.0" text="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响" wrapText="true" />
+            <Label prefHeight="37.0" prefWidth="917.0" text="空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响" wrapText="true" />
             <Label prefHeight="45.0" prefWidth="417.0" text="易感人群症状有轻度加剧，健康人群出现刺激症状" />
             <Label prefHeight="31.0" prefWidth="377.0" text="进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响" />
-            <Label prefHeight="47.0" prefWidth="417.0" text="心脏病、肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状" wrapText="true" />
+            <Label prefHeight="47.0" prefWidth="619.0" text="心脏病、肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状" wrapText="true" />
             <Label prefHeight="43.0" prefWidth="416.0" text="健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病" />
          </children>
       </VBox>
-      <HBox cacheShape="false" centerShape="false" fillHeight="false" layoutY="239.0" prefHeight="30.0" prefWidth="600.0" scaleShape="false">
+      <HBox cacheShape="false" centerShape="false" fillHeight="false" layoutY="261.0" prefHeight="46.0" prefWidth="1098.0" scaleShape="false">
          <children>
             <Label alignment="CENTER" prefHeight="20.0" prefWidth="35.0" style="-fx-background-color: #6beb82; -fx-padding: 5px 10px;" styleClass="label-with-bg" text="一" />
-            <Button fx:id="bt1" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="Button" />
+            <Button fx:id="bt1" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="1" />
             <Label alignment="CENTER" prefHeight="26.0" prefWidth="38.0" style="-fx-background-color: #f1f571;" styleClass="label-with-bg" text="二" />
-            <Button fx:id="bt2" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="Button" />
+            <Button fx:id="bt2" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="2" />
             <Label alignment="CENTER" prefHeight="27.0" prefWidth="36.0" style="-fx-background-color: #f5c60c;" styleClass="label-with-bg" text="三" />
-            <Button fx:id="bt3" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="Button" />
+            <Button fx:id="bt3" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="3" />
             <Label alignment="CENTER" prefHeight="26.0" prefWidth="39.0" style="-fx-background-color: #eb8705;" text="四" />
-            <Button fx:id="bt4" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="98.0" layoutY="10.0" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="Button" />
+            <Button fx:id="bt4" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="98.0" layoutY="10.0" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="4" />
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="41.0" style="-fx-background-color: #a52dc6;" text="五" />
-            <Button fx:id="bt5" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="98.0" layoutY="10.0" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="Button" textFill="#28c8f5" />
+            <Button fx:id="bt5" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="98.0" layoutY="10.0" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="5" textFill="#28c8f5" />
             <Label alignment="CENTER" prefHeight="26.0" prefWidth="39.0" style="-fx-background-color: #f80b0b;" text="六" />
-            <Button fx:id="bt6" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="Button" />
+            <Button fx:id="bt6" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" minHeight="27.0" mnemonicParsing="false" onAction="#HandleButtonClick" prefHeight="27.0" scaleShape="false" style="-fx-background-radius: 50%; -fx-min-width: 15px; -fx-min-height: 15px; -fx-pref-width: 15px; -fx-pref-height: 15px; -fx-max-width: 15px; -fx-max-height: 15px; -fx-text-fill: white;" text="6" />
          </children>
       </HBox>
+      <Label layoutX="1.0" layoutY="227.0" prefHeight="30.0" prefWidth="531.0" text="请预估当前空气质量指数等级" />
+      <GridPane layoutX="3.0" layoutY="1.0" prefHeight="228.0" prefWidth="456.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.0" minWidth="10.0" prefWidth="223.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0734405517578" minWidth="10.0" prefWidth="223.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="17.0" prefWidth="238.0" text="所在省" />
+            <Label prefHeight="17.0" prefWidth="223.0" text="所在市" GridPane.rowIndex="1" />
+            <Label prefHeight="17.0" prefWidth="223.0" text="所在地区" GridPane.rowIndex="2" />
+            <TextField fx:id="sp_province" GridPane.columnIndex="1" />
+            <TextField fx:id="sp_city" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="sp_district" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

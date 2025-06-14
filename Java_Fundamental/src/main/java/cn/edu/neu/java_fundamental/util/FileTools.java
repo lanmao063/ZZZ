@@ -8,6 +8,10 @@ public class FileTools {
     private static final String PATH="data";
     public static int writeStringToFile(String fileName, String content) throws IOException {
         File targetfile = new File( PATH,fileName);
+        File parentDir = targetfile.getParentFile();
+        if (!parentDir.exists()) {
+            parentDir.mkdirs();
+        }
         if (targetfile.exists()) {
             targetfile.delete();
         }
