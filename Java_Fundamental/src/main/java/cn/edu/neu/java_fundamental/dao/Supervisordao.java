@@ -45,7 +45,7 @@ public class Supervisordao {
         return null;
     }
 
-    public List<Supervisor> getAllSupervisors() throws IOException {
+    public List<Supervisor> getAllSupervisors(){
         if (supervisors==null)
             readSupervisors();
         return supervisors;
