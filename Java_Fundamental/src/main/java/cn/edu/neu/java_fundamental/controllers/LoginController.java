@@ -4,6 +4,9 @@ import cn.edu.neu.java_fundamental.LoginApplication;
 import cn.edu.neu.java_fundamental.dao.Supervisordao;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.util.GlobalData;
+import cn.edu.neu.java_fundamental.dao.Supervisordao;
+
+import cn.edu.neu.java_fundamental.util.LoginTool;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,8 +46,8 @@ public class LoginController {
         String pwd = password.getText();
         Supervisordao dao= new Supervisordao();
         try {
-            Supervisor supervisor = dao.login(phone_number, pwd);
-            if (!((supervisor) ==null)) {
+            LoginTool loginTool = new LoginTool();
+            if (loginTool.login(phone_number,pwd)) {
                 System.out.println("登录成功");
                 FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("MainView.fxml"));
                 BorderPane borderPane = (BorderPane) fxmlLoader.load();
