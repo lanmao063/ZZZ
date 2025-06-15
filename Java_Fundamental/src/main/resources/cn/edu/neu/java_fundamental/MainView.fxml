@@ -14,7 +14,7 @@
                </font>
             </Label>
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="personal_btn" mnemonicParsing="false" onAction="#goPersonal" prefHeight="75.0" prefWidth="152.0" text="个人空间">
+            <Button fx:id="personal_btn" mnemonicParsing="false"  prefHeight="75.0" prefWidth="152.0" text="个人空间">
                <font>
                   <Font size="20.0" />
                </font>

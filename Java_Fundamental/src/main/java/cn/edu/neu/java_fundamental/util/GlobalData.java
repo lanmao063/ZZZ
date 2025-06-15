@@ -1,5 +1,7 @@
 package cn.edu.neu.java_fundamental.util;
 
+import cn.edu.neu.java_fundamental.controllers.MainViewController;
+import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.mynode.desc.AsideMenuButtonInfo;
 import javafx.stage.Stage;
 
@@ -12,6 +14,29 @@ public class GlobalData {
     public static final int WIDTH=1360;
     public static final int HEIGHT=768;
     public static List<AsideMenuButtonInfo> administratorSideButton=new ArrayList<>();
+    public static MainViewController mainViewController;
+
+    public static Grider CURRENT_USER;
+    public static List<AsideMenuButtonInfo> griderAsideMenuButtons = new ArrayList<>();
+    static {
+        //网格员功能按钮
+        AsideMenuButtonInfo absence = new AsideMenuButtonInfo("缺勤申请", "moon.png",
+                actionEvent -> {
+                    MainViewController controller = GlobalData.mainViewController;
+                    if (controller != null) {
+                        controller.navigateTo("/cn/edu/neu/java_fundamental/griderAbsence.fxml");
+                    }
+                });
+        AsideMenuButtonInfo work = new AsideMenuButtonInfo("查看任务", "spread-left.png",
+                actionEvent -> {
+                    MainViewController controller = GlobalData.mainViewController;
+                    if (controller != null) {
+                        controller.navigateTo("/cn/edu/neu/java_fundamental/griderWork.fxml");
+                    }});
+        griderAsideMenuButtons.add(absence);
+        griderAsideMenuButtons.add(work);
+    }
+
     static{
         AsideMenuButtonInfo info1 = new AsideMenuButtonInfo("空气质量数据管理", "leaf.png", actionEvent -> {
             System.out.println("空气质量数据管理");

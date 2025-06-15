@@ -15,6 +15,7 @@ public class LoginTool {
         Griderdao griderDao = new Griderdao();
         try {
             Grider grider = griderDao.login(logid, logpwd);
+            GlobalData.CURRENT_USER =grider;
             if (grider != null) {
                 System.out.println("网格员");
                 return true;
