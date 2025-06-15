@@ -2,6 +2,7 @@ package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
+import cn.edu.neu.java_fundamental.util.GlobalData;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class Griderdao extends Userdao<Grider>{
     }
 
     public Grider login(String logid, String logpwd) throws IOException {
+        if(!((login(logid, logpwd, GRIDER_FILE)) == null)) {
+            GlobalData.USER_ROLE = "grider";
+        }
         return login(logid, logpwd, GRIDER_FILE);
     }
 

@@ -55,9 +55,9 @@ public class LoginController {
                 GlobalData.primaryStage.setScene(scene);
                 GlobalData.primaryStage.setTitle("东软环保公众监督系统");
                 GlobalData.primaryStage.show();
-            } else {
+            } else
                 System.out.println("登录失败，请检查用户名或密码");
-            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
