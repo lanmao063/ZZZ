@@ -3,6 +3,7 @@ module cn.edu.neu.java_fundamental {
     requires javafx.fxml;
     requires static lombok;
     requires com.fasterxml.jackson.databind;
+    requires java.desktop;
 
 
     opens cn.edu.neu.java_fundamental to javafx.fxml;

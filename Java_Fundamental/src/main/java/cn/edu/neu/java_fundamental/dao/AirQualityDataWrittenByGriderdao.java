@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirQualityDataWrittenByGriderdao {
-    private static final String AIRQUALITYDATA_FILE = "AirQualityDataWrittenByGrider";
+    private static final String AIRQUALITYDATA_FILE = "AirQualityDataWrittenByGrider.json";
     private static List<AirQualityDataWrittenByGrider> AirQualityDatum = null;
 
     public void readAirQualityDatum(){

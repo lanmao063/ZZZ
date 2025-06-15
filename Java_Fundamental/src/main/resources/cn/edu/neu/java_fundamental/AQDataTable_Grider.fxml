@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.AQDataTable_GriderController">
+   <children>
+      <TableView fx:id="TV_AQData_Grider" prefHeight="660.0" prefWidth="1100.0">
+        <columns>
+          <TableColumn fx:id="GriderColumn" prefWidth="150.0" text="网格员" />
+          <TableColumn fx:id="AQLColumn" prefWidth="150.0" text="空气质量" />
+            <TableColumn fx:id="AreaColumn" prefWidth="300.0" text="负责区域" />
+             <TableColumn fx:id="TimeColumn" prefWidth="150.0" text="提交时间" />
+             <TableColumn fx:id="space" prefWidth="200.0" text="       " />
+             <TableColumn fx:id="OperatorColumn" prefWidth="150.0" text="操作" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
