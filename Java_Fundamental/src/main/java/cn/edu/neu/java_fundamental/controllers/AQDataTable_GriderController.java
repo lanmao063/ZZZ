@@ -2,11 +2,14 @@ package cn.edu.neu.java_fundamental.controllers;
 
 import cn.edu.neu.java_fundamental.dao.AirQualityDataWrittenByGriderdao;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
+import cn.edu.neu.java_fundamental.entity.Supervisor;
+import cn.edu.neu.java_fundamental.mynode.ClickableTextCell;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -45,6 +48,13 @@ public class AQDataTable_GriderController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<AirQualityDataWrittenByGrider> list = new AirQualityDataWrittenByGriderdao().getAllData();
+        GriderColumn.setCellFactory(col-> new ClickableTextCell<>(actionEvent ->  {
+            Object source = actionEvent.getSource();
+            if (source instanceof AirQualityDataWrittenByGrider rowData) {
+                Supervisor submitter = rowData.getSubmitter();
+                System.out.println("Clicked submitter: " + submitter.getName());
+            }
+        }));
         GriderColumn.setCellValueFactory(cellData->new
                 SimpleStringProperty(cellData.getValue().getSubmitter().getName()));
         AQLColumn.setCellValueFactory(cellData->new

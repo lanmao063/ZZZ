@@ -60,13 +60,18 @@ public enum AirQualityLevel {
      */
 
     public static AirQualityLevel getAQL_by_aqi(int aqi){
-        for(AirQualityLevel level: AirQualityLevel.values()){
-            if(aqi<=level.max_aqi&&aqi>=level.min_aqi){
-                return level;
-            }
-        }
-
-        return aqi>500? SEVERE_POLLUTED:EXCELLENT;
+        if(aqi<=50)
+            return AirQualityLevel.EXCELLENT;
+        else if(aqi<=100)
+            return AirQualityLevel.GOOD;
+        else if(aqi<=150)
+            return AirQualityLevel.LIGHT_POLLUTED;
+        else if(aqi<=200)
+            return AirQualityLevel.MODERATE_POLLUTED;
+        else if(aqi<=300)
+            return AirQualityLevel.HEAVY_POLLUTED;
+        else
+            return AirQualityLevel.SEVERE_POLLUTED;
     }
 
     /**
