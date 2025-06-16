@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Grid {
-    private static final String GRIDER_FILE = "AirQualityDataWrittenBySupervisor.json";
+    private static final String GRIDER_FILE = "  ";
     private List<GridInfo> griders = new ArrayList<>();
     public List<GridInfo> readGridInfo() throws IOException {
         try {
