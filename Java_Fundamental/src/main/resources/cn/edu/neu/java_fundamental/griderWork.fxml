@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.9345637583892616" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL"
+           prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="cn.edu.neu.java_fundamental.controllers.GriderWorkController">
+    <VBox spacing="10" style="-fx-padding: 15;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="反馈任务列表" />
+
+        <GridPane hgap="100" vgap="100">
+            <VBox fx:id="gridContainer" disable="false" alignment="CENTER_RIGHT" />
+
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <HBox alignment="CENTER_LEFT" spacing="100" />
+    </VBox>
+      <Button fx:id="exit" mnemonicParsing="false" onAction="#exit" text="返回首页" />
+</SplitPane>
