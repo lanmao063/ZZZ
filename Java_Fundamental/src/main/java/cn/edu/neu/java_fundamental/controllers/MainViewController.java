@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -18,6 +19,9 @@ public class MainViewController {
 
     @FXML
     private Pane centerPane;
+
+    @FXML
+    private Button personal_btn;
 
     @FXML
     private void initialize() {
@@ -50,6 +54,11 @@ public class MainViewController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    void dopersonal(ActionEvent event) {
+        System.out.println("个人主页");
+
     }
 }
 
