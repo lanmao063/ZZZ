@@ -1,21 +1,15 @@
 package cn.edu.neu.java_fundamental.controllers;
 
-import cn.edu.neu.java_fundamental.dao.AirQualityDataWrittenByGriderdao;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
-import cn.edu.neu.java_fundamental.entity.Supervisor;
-import cn.edu.neu.java_fundamental.mynode.ClickableTextCell;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class AQDataTable_GriderController implements Initializable {
@@ -47,16 +41,7 @@ public class AQDataTable_GriderController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        List<AirQualityDataWrittenByGrider> list = new AirQualityDataWrittenByGriderdao().getAllData();
-//        GriderColumn.setCellFactory(col-> new ClickableTextCell<>();
-        AQLColumn.setCellValueFactory(cellData->new
-                SimpleStringProperty(cellData.getValue().getAQL().getChinese_explain()));
-        AreaColumn.setCellValueFactory(cellData->new
-                SimpleStringProperty(cellData.getValue().getProvince()+cellData.getValue().getCity()+cellData.getValue().getDistrict()));
-        TimeColumn.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().getDate().toString()));
 
-        dataList.addAll(list);
-        TV_AQData_Grider.setItems(dataList);
 
 
     }

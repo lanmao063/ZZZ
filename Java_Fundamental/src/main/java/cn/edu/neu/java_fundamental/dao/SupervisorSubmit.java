@@ -1,0 +1,81 @@
+package cn.edu.neu.java_fundamental.dao;
+
+import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
+import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
+import cn.edu.neu.java_fundamental.entity.Supervisor;
+import cn.edu.neu.java_fundamental.util.FileTools;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class SupervisorSubmit {
+    private static final String  filename = "supervisorSubmitLog.json";
+    private static Map<String , List<AirQualityDataWrittenBySupervisor>> supervisorSubmitLog = null;
+
+
+
+
+    /**
+     * 读取提交数据
+     */
+    public void readAirQualityDatum() {
+        try {
+            String json = FileTools.readStringFromFile(filename);
+            ObjectMapper mapper = new ObjectMapper();
+            supervisorSubmitLog = mapper.readValue(json, new com.fasterxml.jackson.core.type.TypeReference<Map<String, List<AirQualityDataWrittenBySupervisor>>>() {});
+
+        } catch (IOException e) {
+            System.out.println("readAirQualityDatum failed: " + e.getMessage());
+        }
+    }
+
+
+    public int addAirQualityData(Supervisor supervisor, AirQualityDataWrittenBySupervisor data) throws IOException {
+        if(supervisorSubmitLog==null){
+            readAirQualityDatum();
+            if(supervisorSubmitLog==null)
+                supervisorSubmitLog = new HashMap<>();
+        }
+            if(supervisorSubmitLog.containsKey(supervisor.getId())){
+                supervisorSubmitLog.get(supervisor.getId()).add(data);
+            }
+            else{
+                supervisorSubmitLog.put(supervisor.getId(), java.util.List.of(data));
+            }
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(supervisorSubmitLog);
+            return FileTools.writeStringToFile(filename,json);
+    }
+
+
+    public void writeAirQualityDatum() {
+        if(supervisorSubmitLog==null){
+            readAirQualityDatum();
+            if(supervisorSubmitLog==null)
+                supervisorSubmitLog = new HashMap<>();
+        }
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            String json = mapper.writeValueAsString(supervisorSubmitLog);
+            FileTools.writeStringToFile(filename, json);
+            System.out.println("writeAirQualityDatum success");
+        }
+        catch (IOException e) {
+            System.out.println("writeAirQualityDatum failed:"+e.getMessage());
+        }
+    }
+
+    public Map<String , List<AirQualityDataWrittenBySupervisor>> getAllData() {
+        if(supervisorSubmitLog==null){
+            readAirQualityDatum();
+            if(supervisorSubmitLog==null)
+                supervisorSubmitLog = new HashMap<>();
+        }
+        return supervisorSubmitLog;
+    }
+
+
+}

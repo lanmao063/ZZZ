@@ -1,14 +1,13 @@
 package cn.edu.neu.java_fundamental.controllers;
-import cn.edu.neu.java_fundamental.dao.AirQualityDataWrittenBySupervisordao;
+import cn.edu.neu.java_fundamental.dao.SupervisorSubmit;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
+import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 
-import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import lombok.Data;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -87,9 +86,9 @@ public class ChooseAQI_Controller {
         airQualityDataWrittenBySupervisor.setDistrict(district);
         airQualityDataWrittenBySupervisor.setDate(date);
         airQualityDataWrittenBySupervisor.setAQL(AQL);
-        AirQualityDataWrittenBySupervisordao AQdao = new AirQualityDataWrittenBySupervisordao();
+        SupervisorSubmit AQdao = new SupervisorSubmit();
         try {
-            int i = AQdao.addAirQualityDataWrittenBySupervisor(airQualityDataWrittenBySupervisor);
+            int i = AQdao.addAirQualityData(new Supervisor(), airQualityDataWrittenBySupervisor);
             if(i > 0){
                 System.out.println("提交成功");
             }else {

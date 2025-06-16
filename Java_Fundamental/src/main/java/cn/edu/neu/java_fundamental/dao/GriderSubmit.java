@@ -1,7 +1,7 @@
 package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
-import cn.edu.neu.java_fundamental.entity.Supervisor;
+import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.util.FileTools;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -32,9 +32,12 @@ public class GriderSubmit  {
 /**
  * 添加提交数据并写入
  */
-    public int addAirQualityData(Supervisor grider, AirQualityDataWrittenByGrider data) throws IOException {
-        if (griderSubmitLog==null)
+    public int addAirQualityData(Grider grider, AirQualityDataWrittenByGrider data) throws IOException {
+        if (griderSubmitLog==null){
             readAirQualityDatum();
+            if (griderSubmitLog==null)
+                griderSubmitLog = new java.util.HashMap<>();
+        }
        if(griderSubmitLog.containsKey(grider.getId()))
            griderSubmitLog.get(grider.getId()).add(data);
        else {
@@ -53,8 +56,11 @@ public class GriderSubmit  {
  * 写入提交数据
  */
     public void writeAirQualityDatum() {
-        if (griderSubmitLog==null)
+        if (griderSubmitLog==null){
             readAirQualityDatum();
+            if (griderSubmitLog==null)
+                griderSubmitLog = new java.util.HashMap<>();
+        }
             try {
                 ObjectMapper mapper = new ObjectMapper();
                 String json = mapper.writeValueAsString(griderSubmitLog);
@@ -71,8 +77,11 @@ public class GriderSubmit  {
  * 获取所有提交数据
  */
     public Map<String , List<AirQualityDataWrittenByGrider>> getAllData() {
-        if(griderSubmitLog==null)
+        if (griderSubmitLog==null){
             readAirQualityDatum();
+            if (griderSubmitLog==null)
+                griderSubmitLog = new java.util.HashMap<>();
+        }
         return griderSubmitLog;
     }
 }
