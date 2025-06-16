@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Data
 public class AirQualityDataWrittenBySupervisor {
-    private Supervisor submitter;
+
     private AirQualityLevel AQL;
     private String province;
     private String city;
@@ -17,7 +17,7 @@ public class AirQualityDataWrittenBySupervisor {
     public AirQualityDataWrittenBySupervisor()
 
     {
-        this.submitter = new Supervisor();
+
         this.AQL = AirQualityLevel.EXCELLENT;
         this.province = "none";
         this.city = "none";
@@ -28,9 +28,8 @@ public class AirQualityDataWrittenBySupervisor {
     /**
      *监督员只能估计空气质量等级AQL，不能给出具体数值
      */
-    public AirQualityDataWrittenBySupervisor(Supervisor submitter,AirQualityLevel AQL, String province, String city, String district, Date date)
+    public AirQualityDataWrittenBySupervisor(AirQualityLevel AQL, String province, String city, String district, Date date)
     {
-        this.submitter = submitter;
         this.AQL = AQL;
         this.province = province;
         this.city = city;

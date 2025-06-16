@@ -48,15 +48,7 @@ public class AQDataTable_GriderController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         List<AirQualityDataWrittenByGrider> list = new AirQualityDataWrittenByGriderdao().getAllData();
-        GriderColumn.setCellFactory(col-> new ClickableTextCell<>(actionEvent ->  {
-            Object source = actionEvent.getSource();
-            if (source instanceof AirQualityDataWrittenByGrider rowData) {
-                Supervisor submitter = rowData.getSubmitter();
-                System.out.println("Clicked submitter: " + submitter.getName());
-            }
-        }));
-        GriderColumn.setCellValueFactory(cellData->new
-                SimpleStringProperty(cellData.getValue().getSubmitter().getName()));
+//        GriderColumn.setCellFactory(col-> new ClickableTextCell<>();
         AQLColumn.setCellValueFactory(cellData->new
                 SimpleStringProperty(cellData.getValue().getAQL().getChinese_explain()));
         AreaColumn.setCellValueFactory(cellData->new
