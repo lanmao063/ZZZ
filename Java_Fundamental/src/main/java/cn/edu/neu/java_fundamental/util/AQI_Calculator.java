@@ -51,9 +51,9 @@ public class AQI_Calculator {
 
     public static int calculateAQI_forAllPollutants(double so2_concentration,double co_concentration,double spm_concentration){
         int aqi0,aqi1,aqi2;
-        aqi0= AQI_Calculator.calculateAQI_forSinglePollutant(0,so2_concentration);
-        aqi1= AQI_Calculator.calculateAQI_forSinglePollutant(1,co_concentration);
-        aqi2= AQI_Calculator.calculateAQI_forSinglePollutant(2,spm_concentration);
+        aqi0= calculateAQI_forSinglePollutant(0,so2_concentration);
+        aqi1= calculateAQI_forSinglePollutant(1,co_concentration);
+        aqi2= calculateAQI_forSinglePollutant(2,spm_concentration);
         return Math.max(aqi0,Math.max(aqi1,aqi2));
     }
 
