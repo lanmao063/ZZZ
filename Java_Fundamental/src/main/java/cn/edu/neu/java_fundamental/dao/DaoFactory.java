@@ -16,6 +16,7 @@ public class DaoFactory {
                 break;
             case "Supervisor":
                 daoClassName = "cn.edu.neu.java_fundamental.dao.Supervisordao";
+                break;
                 default:
                 throw new IllegalArgumentException("Unknown role: " + role);
         }
