@@ -3,6 +3,7 @@ package cn.edu.neu.java_fundamental.mynode;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.TableCell;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 public class ClickableTextCell <S> extends TableCell<S,String> {
@@ -15,14 +16,6 @@ public class ClickableTextCell <S> extends TableCell<S,String> {
 
     public ClickableTextCell(EventHandler<ActionEvent> eventHandler) {
         this.eventHandler = eventHandler;
-        setOnMouseClicked(event -> {
-            if (eventHandler != null && !isEmpty()) {
-                S rowData = getTableRow().getItem();
-                // 修复点：使用 EventTarget 类型作为第二个参数
-                ActionEvent actionEvent = new ActionEvent(rowData, event.getTarget());
-                eventHandler.handle(actionEvent);
-            }
-        });
     }
 
 
@@ -33,9 +26,13 @@ public class ClickableTextCell <S> extends TableCell<S,String> {
             setGraphic(null);
         } else {
             Text text = new Text(item);
-            text.setOnMouseClicked(event -> {
-                eventHandler.handle(new ActionEvent(text, event.getTarget()));
-            });
+            text.setUnderline(true);
+            text.setFill(Paint.valueOf("#0000FF"));
+            text.setOnMouseClicked(event -> { if (eventHandler != null) {
+                S rowData =  getTableRow().getItem();
+                ActionEvent actionEvent = new ActionEvent(rowData, event.getTarget());
+                eventHandler.handle(actionEvent);
+            }});
             setGraphic(text);
 
         }

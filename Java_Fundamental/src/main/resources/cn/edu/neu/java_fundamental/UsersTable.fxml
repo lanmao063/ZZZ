@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.UsersTableController">
+   <children>
+      <TableView fx:id="TV_users" layoutY="30.0" prefHeight="630.0" prefWidth="1100.0">
+        <columns>
+          <TableColumn fx:id="NameColumn" prefWidth="200.0" text="用户名" />
+          <TableColumn fx:id="IDColumn" prefWidth="200.0" text="ID" />
+            <TableColumn fx:id="ClassColumn" prefWidth="100.0" text="用户等级" />
+            <TableColumn fx:id="SexColumn" prefWidth="100.0" text="性别" />
+            <TableColumn fx:id="ConditionColumn" prefWidth="200.0" text="状态" />
+            <TableColumn fx:id="ScoreColumn" prefWidth="200.0" text="积分" />
+            <TableColumn fx:id="EditColumn" prefWidth="100.0" text="信息编辑" />
+        </columns>
+      </TableView>
+      <Label prefHeight="30.0" prefWidth="500.0" text="   " />
+      <Label layoutX="500.0" prefHeight="30.0" prefWidth="100.0" text="      用户管理" />
+      <Label layoutX="600.0" prefHeight="30.0" prefWidth="500.0" text="   " />
+   </children>
+</AnchorPane>

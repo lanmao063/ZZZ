@@ -8,32 +8,34 @@ import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.util.AirQualityLevel;
+import cn.edu.neu.java_fundamental.util.GlobalData;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public class Demo  {
+public class Demo extends  Application{
 
-    public static void main(String[] args){
-        Supervisordao supervisordao=new Supervisordao();
-        List<Supervisor> list=supervisordao.getAllSupervisors();
-        SupervisorSubmit submit=new SupervisorSubmit();
-        try {
-            submit.addAirQualityData(list.get(0),new AirQualityDataWrittenBySupervisor(AirQualityLevel.EXCELLENT,"北京","北京","东城区",new Date()));
-            Map<String, List<AirQualityDataWrittenBySupervisor >> map=submit.getAllData();
-            for(String supervisor:map.keySet()){
-                for(AirQualityDataWrittenBySupervisor data:map.get(supervisor)){
-                    System.out.println(data);
-                }
-            }
-
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
+    @Override
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("UsersTable.fxml"));
+        AnchorPane root = fxmlLoader.load();
+        Scene scene = new Scene(root, 1100, 600);
+        stage.setTitle("用户信息");
+        stage.setScene(scene);
+        stage.show();
     }
+    public static void main(String[] args) {
+        launch();
+    }
+
+
 
 }

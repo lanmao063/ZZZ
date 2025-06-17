@@ -10,4 +10,9 @@ import lombok.ToString;
 public class Grider extends Supervisor {
     private String area;
     private boolean isOnline;
+
+    public boolean getIsOnline()
+    {
+        return isOnline;
+    }
 }
