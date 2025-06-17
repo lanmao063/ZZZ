@@ -33,6 +33,12 @@ public class SupervisorSubmit {
     }
 
 
+    /**
+     * 添加数据
+     * @param supervisor 提交人的对象
+     * @param data 提交的数据
+     * @return int数字表示写入成功与否
+     */
     public int addAirQualityData(Supervisor supervisor, AirQualityDataWrittenBySupervisor data) throws IOException {
         if(supervisorSubmitLog==null){
             readAirQualityDatum();
@@ -50,7 +56,9 @@ public class SupervisorSubmit {
             return FileTools.writeStringToFile(filename,json);
     }
 
-
+    /**
+     * 写入数据
+     */
     public void writeAirQualityDatum() {
         if(supervisorSubmitLog==null){
             readAirQualityDatum();
@@ -68,6 +76,10 @@ public class SupervisorSubmit {
         }
     }
 
+    /**
+     * 获取所有数据
+     * @return supervisorSubmitLog的map
+     */
     public Map<String , List<AirQualityDataWrittenBySupervisor>> getAllData() {
         if(supervisorSubmitLog==null){
             readAirQualityDatum();
