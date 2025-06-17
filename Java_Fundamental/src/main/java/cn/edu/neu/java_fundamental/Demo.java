@@ -1,14 +1,6 @@
 package cn.edu.neu.java_fundamental;
 
 
-import cn.edu.neu.java_fundamental.dao.GriderSubmit;
-import cn.edu.neu.java_fundamental.dao.SupervisorSubmit;
-import cn.edu.neu.java_fundamental.dao.Supervisordao;
-import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
-import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
-import cn.edu.neu.java_fundamental.entity.Supervisor;
-import cn.edu.neu.java_fundamental.util.AirQualityLevel;
-import cn.edu.neu.java_fundamental.util.GlobalData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,9 +9,6 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 public class Demo extends  Application{
 

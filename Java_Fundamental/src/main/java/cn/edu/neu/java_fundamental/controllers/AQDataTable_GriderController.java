@@ -1,47 +1,77 @@
 package cn.edu.neu.java_fundamental.controllers;
 
+import cn.edu.neu.java_fundamental.dao.GriderSubmit;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import lombok.Data;
 
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
+
 
 public class AQDataTable_GriderController implements Initializable {
 
     @FXML
-    private TableView<AirQualityDataWrittenByGrider> TV_AQData_Grider;
+    private TableView<AQDataGriderGroup> TV_AQData_Grider;
 
     @FXML
-    private TableColumn<AirQualityDataWrittenByGrider, String> GriderColumn;
-
-
-    @FXML
-    private TableColumn<AirQualityDataWrittenByGrider,String> AQLColumn;
-
-    @FXML
-    private TableColumn<AirQualityDataWrittenByGrider, String> AreaColumn;
+    private TableColumn<AQDataGriderGroup, String> GriderColumn;
 
 
     @FXML
-    private TableColumn<AirQualityDataWrittenByGrider, String> TimeColumn;
+    private TableColumn<AQDataGriderGroup,String> AQLColumn;
+
+    @FXML
+    private TableColumn<AQDataGriderGroup, String> AreaColumn;
+
+
+    @FXML
+    private TableColumn<AQDataGriderGroup, String> TimeColumn;
 
     @FXML
     private TableColumn<?, ?> space;
 
     @FXML
-    private TableColumn<AirQualityDataWrittenByGrider, ?> OperatorColumn;
+    private TableColumn<AQDataGriderGroup, String> OperatorColumn;
+
+    @Data
+    public  static class AQDataGriderGroup{
+        private String griderID;
+        private AirQualityDataWrittenByGrider data;
+
+    }
+
 
     private ObservableList<AirQualityDataWrittenByGrider> dataList= FXCollections.observableArrayList();
+    private GriderSubmit griderSubmit=new GriderSubmit();
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        List<AQDataGriderGroup> list=new ArrayList<>();
+        Map<String , List<AirQualityDataWrittenByGrider>> allData=griderSubmit.getAllData();
+       Set< String> griderIDs=allData.keySet();
+       for(String griderID:griderIDs){
+           for(AirQualityDataWrittenByGrider data:allData.get(griderID)){
+               AQDataGriderGroup group=new AQDataGriderGroup();
+               group.griderID=griderID;
+               group.data=data;
+               list.add(group);
 
+           }
+       }
+       GriderColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().griderID));
+       AQLColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getAQL().getChinese_explain()));
+       AreaColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getProvince()+cellData.getValue().data.getCity()+cellData.getValue().data.getDistrict()));
+       TimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getDate().toString()));
 
 
     }
