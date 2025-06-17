@@ -1,7 +1,6 @@
 package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.Supervisor;
-import cn.edu.neu.java_fundamental.util.GlobalData;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,13 +18,6 @@ public class Supervisordao extends Userdao<Supervisor> {
     public int addSupervisor(Supervisor supervisor) throws IOException {
         supervisors.add(supervisor);
         return addSingleData(supervisor, SUPERVISOR_FILE);
-    }
-    public Supervisor login(String logid, String logpwd) throws IOException {
-        if(!((login(logid, logpwd, SUPERVISOR_FILE)) ==null))
-        {
-            GlobalData.USER_ROLE = "supervisor";
-        }
-        return login(logid, logpwd, SUPERVISOR_FILE);
     }
 
     @Override

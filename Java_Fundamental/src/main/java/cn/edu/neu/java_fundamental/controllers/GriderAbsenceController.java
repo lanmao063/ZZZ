@@ -1,5 +1,6 @@
 package cn.edu.neu.java_fundamental.controllers;
 
+import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.util.GlobalData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,11 +25,12 @@ public class GriderAbsenceController {
     @FXML
     private void onSaveButtonClicked() {
         String Input = textArea.getText();
+        Grider grider = (Grider) GlobalData.CURRENT_USER;
         if (Input == null || Input.trim().isEmpty()) {
-            GlobalData.CURRENT_USER.setOnline(true);
+            grider.setOnline(true);
             return;
         } else {
-            GlobalData.CURRENT_USER.setOnline(false);
+            grider.setOnline(false);
         }
     }
 

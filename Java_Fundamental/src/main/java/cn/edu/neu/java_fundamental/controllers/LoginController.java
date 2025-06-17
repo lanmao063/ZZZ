@@ -22,6 +22,7 @@ import javafx.scene.Node;
 
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 public class LoginController {
 
@@ -58,7 +59,8 @@ public class LoginController {
             } else
                 System.out.println("登录失败，请检查用户名或密码");
 
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException | InvocationTargetException | NoSuchMethodException |
+                 InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }

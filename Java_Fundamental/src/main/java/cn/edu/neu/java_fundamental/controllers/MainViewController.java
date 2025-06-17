@@ -25,14 +25,14 @@ public class MainViewController {
 
     @FXML
     private void initialize() {
-        if (Objects.equals(GlobalData.USER_ROLE, "administrator")) {
+        if (Objects.equals(GlobalData.USER_ROLE, "Administrator")) {
             System.out.println("Loading Administrator View");
             AsideMenu.getChildren().clear();
             for (AsideMenuButtonInfo info : GlobalData.administratorSideButton) {
                 AsideMenuButton button = new AsideMenuButton(info);
                 AsideMenu.getChildren().add(button);
             }
-        } else if (Objects.equals(GlobalData.USER_ROLE, "grider")) {
+        } else if (Objects.equals(GlobalData.USER_ROLE, "Grider")) {
             System.out.println("Loading Grider View");
             AsideMenu.getChildren().clear();
             for (AsideMenuButtonInfo info : GlobalData.griderAsideMenuButtons) {
