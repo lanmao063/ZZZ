@@ -62,9 +62,11 @@ public class MainViewController {
     }
     @FXML
     void dopersonal(ActionEvent event) throws IOException {
-        FXMLTools fxmlTools = new FXMLTools();
-        fxmlTools.loadContentIntoPane("cn/edu/neu/java_fundamental/PersonalPage.fxml", centerPane);
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/PersonalPage.fxml"));
+        loader.setControllerFactory(param -> new PersonalPageController(centerPane));
+        Parent personalPage = loader.load();
+        centerPane.getChildren().clear();
+        centerPane.getChildren().add(personalPage);
     }
 }
 
