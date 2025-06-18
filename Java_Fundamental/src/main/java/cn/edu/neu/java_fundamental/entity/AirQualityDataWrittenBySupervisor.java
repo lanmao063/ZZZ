@@ -12,7 +12,8 @@ public class AirQualityDataWrittenBySupervisor {
     private String province;
     private String city;
     private String district;
-    private Date date;
+    private String date;
+    private String text;
 
     public AirQualityDataWrittenBySupervisor()
 
@@ -22,19 +23,21 @@ public class AirQualityDataWrittenBySupervisor {
         this.province = "none";
         this.city = "none";
         this.district = "none";
-        this.date = new Date();
+        this.date = "none";
+        this.text = "none";
     }
 
     /**
      *监督员只能估计空气质量等级AQL，不能给出具体数值
      */
-    public AirQualityDataWrittenBySupervisor(AirQualityLevel AQL, String province, String city, String district, Date date)
+    public AirQualityDataWrittenBySupervisor(AirQualityLevel AQL, String province, String city, String district, String date, String text)
     {
         this.AQL = AQL;
         this.province = province;
         this.city = city;
         this.district = district;
         this.date = date;
+        this.text = text;
     }
 
 }

@@ -51,7 +51,7 @@ public class SupervisorSubmit {
             else{
                 supervisorSubmitLog.put(supervisor.getId(), java.util.List.of(data));
             }
-            ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper();
             String json = mapper.writeValueAsString(supervisorSubmitLog);
             return FileTools.writeStringToFile(filename,json);
     }
