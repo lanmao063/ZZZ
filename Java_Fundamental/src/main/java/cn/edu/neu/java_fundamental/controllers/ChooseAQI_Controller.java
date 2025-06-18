@@ -148,7 +148,6 @@ public class ChooseAQI_Controller {
         airQualityDataWrittenBySupervisor.setDistrict(district);
         airQualityDataWrittenBySupervisor.setDate(formattedDate);
         airQualityDataWrittenBySupervisor.setAQL(AQL);
-        airQualityDataWrittenBySupervisor.setText(text);
         SupervisorSubmit AQdao = new SupervisorSubmit();
         try {
             int i = AQdao.addAirQualityData(new Supervisor(), airQualityDataWrittenBySupervisor);

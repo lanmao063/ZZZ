@@ -3,8 +3,6 @@ package cn.edu.neu.java_fundamental.util;
 import cn.edu.neu.java_fundamental.controllers.MainViewController;
 import cn.edu.neu.java_fundamental.dao.DaoFactory;
 import cn.edu.neu.java_fundamental.dao.Userdao;
-import cn.edu.neu.java_fundamental.entity.Administrator;
-import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.mynode.desc.AsideMenuButtonInfo;
 import javafx.stage.Stage;
@@ -20,7 +18,7 @@ public class GlobalData {
     public static final int HEIGHT=768;
     public static List<AsideMenuButtonInfo> administratorSideButton=new ArrayList<>();
     public static List<AsideMenuButtonInfo> griderAsideMenuButtons = new ArrayList<>();
-    public static MainViewController mainViewController;//?
+    public static MainViewController mainViewController;
     public static Userdao<? extends Supervisor> CURRENTDAO = null;
     public static Supervisor CURRENT_USER = null;/***此为当前登录用户实体类的引用*/
     public static void setLoginData(Supervisor userEntity,String role) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -33,19 +31,20 @@ public class GlobalData {
         //网格员功能按钮
         AsideMenuButtonInfo absence = new AsideMenuButtonInfo("缺勤申请", "moon.png",
                 actionEvent -> {
-                    MainViewController controller = GlobalData.mainViewController;
-                    if (controller != null) {
-                        controller.navigateTo("/cn/edu/neu/java_fundamental/griderAbsence.fxml");
-                    }
+                    Load("/cn/edu/neu/java_fundamental/griderAbsence.fxml");
                 });
         AsideMenuButtonInfo work = new AsideMenuButtonInfo("查看任务", "spread-left.png",
                 actionEvent -> {
-                    MainViewController controller = GlobalData.mainViewController;
-                    if (controller != null) {
-                        controller.navigateTo("/cn/edu/neu/java_fundamental/griderWork.fxml");
-                    }});
+                    Load("/cn/edu/neu/java_fundamental/griderWork.fxml");});
         griderAsideMenuButtons.add(absence);
         griderAsideMenuButtons.add(work);
+    }
+
+    public static void Load(String fxmlPath) {
+        MainViewController controller = GlobalData.mainViewController;
+        if (controller != null) {
+            controller.navigateTo(fxmlPath);
+        }
     }
 
     static{

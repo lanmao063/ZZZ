@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
+import static cn.edu.neu.java_fundamental.util.GlobalData.Load;
+
 public class GriderWorkController {
 
 
@@ -26,7 +28,7 @@ public class GriderWorkController {
     private VBox gridContainer;
 
     @FXML
-    private void initialize() throws IOException {
+    public void initialize() throws IOException {
         List<GridInfo> gridInfoList = new Grid().readGridInfo();
 
         for (GridInfo grid : gridInfoList) {
@@ -39,8 +41,22 @@ public class GriderWorkController {
             textField.setEditable(false);
             Button myButton = new Button("去检测");
             myButton.setPrefSize(80, 50);
-            myButton.setOnAction(event -> System.out.println("按钮被点击！"));
-            Label label = new Label(grid.getAql());
+            myButton.setOnAction(event -> {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/GriderFeedback.fxml"));
+                    Parent root = loader.load();
+
+                    GriderFeedbackController controller = loader.getController();
+                    controller.setGridInfo(grid);
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            Label label = new Label(grid.getAQL());
             label.setPrefSize(200, 50);
 
             hbox.getChildren().addAll(label, textField, myButton);

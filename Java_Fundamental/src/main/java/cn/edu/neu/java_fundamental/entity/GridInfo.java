@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,9 +20,14 @@ public class GridInfo {
     private String city;
     private String district;
     private String date;
-    private String aql;
+    private String AQL;
 
 
-
-
+    public GridInfo(String province, String city, String district, String date, String string) {
+        this.province = province;
+        this.city = city;
+        this.district = district;
+        this.date = date;
+        this.AQL = string;
+    }
 }

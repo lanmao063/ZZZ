@@ -1,27 +1,32 @@
 package cn.edu.neu.java_fundamental.entity;
 
-import cn.edu.neu.java_fundamental.util.FileTools;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import cn.edu.neu.java_fundamental.dao.SupervisorSubmit;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Grid {
-    private static final String GRIDER_FILE = "  ";
-    private List<GridInfo> griders = new ArrayList<>();
-    public List<GridInfo> readGridInfo() throws IOException {
-        try {
-            String gridInfo = FileTools.readStringFromFile(GRIDER_FILE);
-            ObjectMapper mapper = new ObjectMapper();
-            griders = mapper.readValue(gridInfo, mapper.getTypeFactory().constructCollectionType(List.class, GridInfo.class));
-        }
-        catch(IOException e){
-            griders = new ArrayList<>();
-            System.out.println("readSupervisors failed "+e.getMessage());
 
-        }
-        return griders;
+    public List<GridInfo> readGridInfo() throws IOException {
+        SupervisorSubmit submitDao = new SupervisorSubmit();
+        Map<String, List<AirQualityDataWrittenBySupervisor>> allDataMap = submitDao.getAllData();
+        List<GridInfo> gridInfos;
+        // 使用 Stream 提取所有数据
+        List<AirQualityDataWrittenBySupervisor> allData = allDataMap.values().stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+        gridInfos = allData.stream()
+                .map(data -> new GridInfo(
+                        data.getProvince(),
+                        data.getCity(),
+                        data.getDistrict(),
+                        data.getDate(),
+                        data.getAQL().toString()
+                ))
+                .collect(Collectors.toList());
+        return gridInfos;
     }
 
 }

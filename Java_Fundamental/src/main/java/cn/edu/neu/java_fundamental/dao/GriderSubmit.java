@@ -38,8 +38,9 @@ public class GriderSubmit  {
             if (griderSubmitLog==null)
                 griderSubmitLog = new java.util.HashMap<>();
         }
-       if(griderSubmitLog.containsKey(grider.getId()))
+       if(griderSubmitLog.containsKey(grider.getId())) {
            griderSubmitLog.get(grider.getId()).add(data);
+       }
        else {
            ArrayList<AirQualityDataWrittenByGrider> list = new ArrayList<>();
            list.add(data);

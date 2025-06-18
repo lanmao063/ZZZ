@@ -21,7 +21,7 @@ public class Demo extends  Application{
     @Override
     public void start(Stage stage) throws IOException {
         Dispatchdao dispatchdao=new Dispatchdao();
-        dispatchdao.addDispatchLog(new Grider("1","1","1","1",1,"1",true),new AirQualityDataWrittenBySupervisor( AirQualityLevel.EXCELLENT,"1","1","1","1","1"));
+        dispatchdao.addDispatchLog(new Grider("1","1","1","1",1,"1",true), new AirQualityDataWrittenBySupervisor(AirQualityLevel.EXCELLENT,"1","1","1","1"));
         Map<String, List<AirQualityDataWrittenBySupervisor>> dispatchLog=dispatchdao.getDispatchLog();
         System.out.println(dispatchLog);
     }
