@@ -1,4 +1,4 @@
-package cn.edu.neu.java_fundamental;
+package cn.edu.neu.java_fundamental.controllers;
 
 import cn.edu.neu.java_fundamental.dao.DaoFactory;
 import cn.edu.neu.java_fundamental.dao.Userdao;
@@ -16,9 +16,8 @@ import javafx.scene.control.TextField;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 
-public class RenewPersonalFile {
+public class RenewPersonalFileController {
     @FXML
     private Button change_btn;
 
@@ -36,7 +35,6 @@ public class RenewPersonalFile {
             System.out.println("Fields cannot be empty.");
         }
         else {
-            Userdao<? extends Supervisor> dao= DaoFactory.createDao(GlobalData.USER_ROLE);
             Supervisor currentUser = GlobalData.CURRENT_USER;
             String filename="data/"+GlobalData.USER_ROLE+".json";
 

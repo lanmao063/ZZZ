@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.RenewPersonalFile">
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.RenewPersonalFileController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" prefHeight="57.0" prefWidth="175.0" text="修改个人信息">
          <font>

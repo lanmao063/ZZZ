@@ -44,8 +44,10 @@ public class PersonalPageController {
     }
 
     @FXML
-    void doRenewPwd(ActionEvent event) {
-
+    void doRenewPwd(ActionEvent event) throws IOException {
+        mainCenterPane.getChildren().clear();
+        FXMLTools fxmlTools = new FXMLTools();
+        fxmlTools.loadContentIntoPane("cn/edu/neu/java_fundamental/RenewPassword.fxml", mainCenterPane);
     }
     @FXML
     private void initialize() {

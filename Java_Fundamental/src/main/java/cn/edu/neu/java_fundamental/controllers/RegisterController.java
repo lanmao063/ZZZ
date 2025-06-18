@@ -28,6 +28,18 @@ public class RegisterController {
                 String name = user_name.getText();
                 String password = user_password.getText();
                 String phoneNumber = user_phonenumber.getText();
+                if (name.isEmpty() || password.isEmpty() || phoneNumber.isEmpty()) {
+                        System.out.println("请填写完整信息");
+                        return;
+                }
+                if( !phoneNumber.matches("\\d{11}")) {
+                        System.out.println("请输入正确的手机号");
+                        return;
+                }
+                if (password.length() < 6) {
+                        System.out.println("密码长度不能小于6位");
+                        return;
+                }
                 Supervisor supervisor = new Supervisor();
                 supervisor.setName(name);
                 supervisor.setPassword(password);
