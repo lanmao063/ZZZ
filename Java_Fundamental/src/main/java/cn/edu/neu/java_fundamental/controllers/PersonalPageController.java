@@ -1,9 +1,12 @@
 package cn.edu.neu.java_fundamental.controllers;
 
+import cn.edu.neu.java_fundamental.util.GlobalData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
+import static cn.edu.neu.java_fundamental.util.FXMLTools.ChineseRoleName;
 
 public class PersonalPageController {
     @FXML
@@ -33,11 +36,11 @@ public class PersonalPageController {
     void doRenewPwd(ActionEvent event) {
 
     }
+    @FXML
     private void initialize() {
-        // 初始化个人信息
-        user_nameLabel.setText("张三");
-        phone_numberLabel.setText("1234567890");
-        roleLabel.setText("管理员");
-        scoreLabel.setText("100");
+        user_nameLabel.setText(GlobalData.CURRENT_USER.getName());
+        phone_numberLabel.setText(GlobalData.CURRENT_USER.getId());
+        roleLabel.setText(ChineseRoleName(GlobalData.USER_ROLE) );
+        scoreLabel.setText(String.valueOf(GlobalData.CURRENT_USER.getScore()));
     }
 }
