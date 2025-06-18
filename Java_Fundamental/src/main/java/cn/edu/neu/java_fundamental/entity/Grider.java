@@ -4,21 +4,20 @@ import lombok.*;
 
 @Data
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Grider extends Supervisor {
     private String area;
     private boolean isOnline;
 
-    public Grider(String id, String password, String name, String sex, int score, String area, boolean isOnline)
-    {
+    public Grider(String id, String password, String name, String sex, int score, String area, boolean b) {
         super(id, password, name, sex, score);
         this.area = area;
-        this.isOnline = isOnline;
+        this.isOnline = b;
     }
 
     public boolean getIsOnline()
     {
         return isOnline;
     }
-
-
 }

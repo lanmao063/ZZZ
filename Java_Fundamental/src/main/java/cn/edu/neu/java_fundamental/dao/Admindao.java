@@ -1,6 +1,7 @@
 package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.Administrator;
+import cn.edu.neu.java_fundamental.entity.Supervisor;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,10 @@ public class Admindao extends Userdao<Administrator> {
         }
         return administrators;
     }
-    public int addAdministrator(Administrator administrator) throws IOException {
+    public int addAdministrator(Supervisor supervisor) throws IOException {
+        Administrator administrator = (Administrator)supervisor;
+        administrator.setScore(0);
+        administrator.setTerritory("null");
         administrators.add(administrator);
         return addSingleData(administrator, ADMINISTRATOR_FILE);
     }

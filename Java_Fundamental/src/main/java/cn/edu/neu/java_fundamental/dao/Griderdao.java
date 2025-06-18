@@ -1,6 +1,7 @@
 package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.Grider;
+import cn.edu.neu.java_fundamental.entity.Supervisor;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,11 @@ public class Griderdao extends Userdao<Grider>{
         }
         return griders;
     }
-    public int addGrider(Grider grider) throws IOException {
+    public int addGrider(Supervisor supervisor) throws IOException {
+        Grider grider = (Grider) supervisor;
+        grider.setScore(0);
+        grider.setOnline(true);
+        grider.setArea("null");
         griders.add(grider);
         return addSingleData(grider, GRIDER_FILE);
     }

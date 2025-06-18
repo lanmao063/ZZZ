@@ -3,5 +3,6 @@
   "password" : "114514",
   "name" : "仙贝",
   "sex" : null,
-  "score" : 0
+  "score" : 0,
+  "isOnline": "true"
 } ]
