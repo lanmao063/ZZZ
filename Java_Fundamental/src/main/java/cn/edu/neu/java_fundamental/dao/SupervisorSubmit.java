@@ -1,6 +1,5 @@
 package cn.edu.neu.java_fundamental.dao;
 
-import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.util.FileTools;
@@ -87,6 +86,28 @@ public class SupervisorSubmit {
                 supervisorSubmitLog = new HashMap<>();
         }
         return supervisorSubmitLog;
+    }
+
+
+    public int deleteData(String supervisorID, AirQualityDataWrittenBySupervisor data)throws IOException{
+        if (supervisorSubmitLog==null){
+            readAirQualityDatum();
+            if (supervisorSubmitLog==null)
+                supervisorSubmitLog = new java.util.HashMap<>();
+        }
+        if(!supervisorSubmitLog.containsKey(supervisorID)){
+            System.out.println("No such supervisorID");
+            return 0;
+
+        }
+        else if(!supervisorSubmitLog.get(supervisorID).contains(data)) {
+            System.out.println("No such data");
+            return 0;
+        }
+        supervisorSubmitLog.get(supervisorID).remove(data);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(supervisorSubmitLog);
+        return FileTools.writeStringToFile(filename, json);
     }
 
 

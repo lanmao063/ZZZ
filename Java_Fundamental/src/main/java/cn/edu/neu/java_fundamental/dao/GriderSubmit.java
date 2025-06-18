@@ -84,4 +84,24 @@ public class GriderSubmit  {
         }
         return griderSubmitLog;
     }
+
+    public  int deleteData(String griderID, AirQualityDataWrittenByGrider data)throws IOException{
+        if (griderSubmitLog==null){
+            readAirQualityDatum();
+            if (griderSubmitLog==null)
+                griderSubmitLog = new java.util.HashMap<>();
+        }
+        if(!griderSubmitLog.containsKey(griderID)){
+            System.out.println("No such griderID");
+        return 0;
+        }
+        else if(!griderSubmitLog.get(griderID).contains(data)) {
+            System.out.println("No such data");
+            return 0;}
+        griderSubmitLog.get(griderID).remove(data);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(griderSubmitLog);
+        return FileTools.writeStringToFile(filename, json);
+
+    }
 }

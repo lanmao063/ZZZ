@@ -1,6 +1,10 @@
 package cn.edu.neu.java_fundamental;
 
 
+import cn.edu.neu.java_fundamental.dao.Dispatchdao;
+import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
+import cn.edu.neu.java_fundamental.entity.Grider;
+import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,17 +13,17 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public class Demo extends  Application{
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("UsersTable.fxml"));
-        AnchorPane root = fxmlLoader.load();
-        Scene scene = new Scene(root, 1100, 600);
-        stage.setTitle("用户信息");
-        stage.setScene(scene);
-        stage.show();
+        Dispatchdao dispatchdao=new Dispatchdao();
+        dispatchdao.addDispatchLog(new Grider("1","1","1","1",1,"1",true),new AirQualityDataWrittenBySupervisor( AirQualityLevel.EXCELLENT,"1","1","1","1","1"));
+        Map<String, List<AirQualityDataWrittenBySupervisor>> dispatchLog=dispatchdao.getDispatchLog();
+        System.out.println(dispatchLog);
     }
     public static void main(String[] args) {
         launch();

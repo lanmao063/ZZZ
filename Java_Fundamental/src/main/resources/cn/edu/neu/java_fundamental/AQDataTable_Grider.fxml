@@ -17,8 +17,8 @@
              <TableColumn fx:id="OperatorColumn" prefWidth="150.0" text="操作" />
         </columns>
       </TableView>
-      <Label prefHeight="30.0" prefWidth="500.0" text="Label" />
+      <Label prefHeight="30.0" prefWidth="500.0" text="    " />
       <Label layoutX="500.0" prefHeight="30.0" prefWidth="100.0" text="AQI管理(网格员)" />
-      <Label layoutX="600.0" prefHeight="30.0" prefWidth="500.0" text="Label" />
+      <Label layoutX="600.0" prefHeight="30.0" prefWidth="500.0" text="    " />
    </children>
 </AnchorPane>

@@ -89,6 +89,7 @@ public class UsersTableController implements Initializable {
         EditColumn.setCellFactory(param->new ClickableTextCell<Supervisor>(event->{
             System.out.println("管理员点击了信息编辑字段");
             Supervisor supervisor = (Supervisor) event.getSource();
+
             System.out.println(supervisor);
 
         }));

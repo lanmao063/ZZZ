@@ -2,6 +2,7 @@ package cn.edu.neu.java_fundamental.controllers;
 
 import cn.edu.neu.java_fundamental.dao.GriderSubmit;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
+import cn.edu.neu.java_fundamental.mynode.ClickableTextCell;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,7 +50,7 @@ public class AQDataTable_GriderController implements Initializable {
     }
 
 
-    private ObservableList<AirQualityDataWrittenByGrider> dataList= FXCollections.observableArrayList();
+    private ObservableList<AQDataGriderGroup> dataList= FXCollections.observableArrayList();
     private GriderSubmit griderSubmit=new GriderSubmit();
 
 
@@ -72,6 +73,26 @@ public class AQDataTable_GriderController implements Initializable {
        AQLColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getAQL().getChinese_explain()));
        AreaColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getProvince()+cellData.getValue().data.getCity()+cellData.getValue().data.getDistrict()));
        TimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getDate().toString()));
+       OperatorColumn.setCellValueFactory(cellData -> new SimpleStringProperty("删除这条数据"));
+       OperatorColumn.setCellFactory(param-> new ClickableTextCell(event -> {
+           AQDataGriderGroup group=(AQDataGriderGroup) event.getSource();
+           System.out.println("管理员点击了信息删除字段");
+           try{
+           griderSubmit.deleteData(group.griderID,group.data);
+           dataList.remove(group);
+           TV_AQData_Grider.setItems(dataList);
+           TV_AQData_Grider.refresh();
+           System.out.println("删除成功");
+           }
+           catch (Exception e){
+               System.out.println("删除失败");
+               e.printStackTrace();
+           }
+       }));
+
+       dataList.addAll(list);
+       TV_AQData_Grider.setItems(dataList);
+       TV_AQData_Grider.setEditable(true);
 
 
     }
