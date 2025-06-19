@@ -20,6 +20,11 @@ public class Demo extends  Application{
 
     @Override
     public void start(Stage stage) throws IOException {
+        Dispatchdao dispatchdao = new Dispatchdao();
+        Map<String, List<AirQualityDataWrittenBySupervisor> > dispatchLog = dispatchdao.getDispatchLog();
+        System.out.println("dispatchLog:"+dispatchLog);
+        Griderdao griderdao = new Griderdao();
+        griderdao.addGrider(new Grider("1234","1","1","1",1,"1",true));
         SupervisorSubmit ss = new SupervisorSubmit();
         ss.addAirQualityData(new Supervisor("1","1","1","1",1),new AirQualityDataWrittenBySupervisor(AirQualityLevel.GOOD,"1","1","1","1"));
         FXMLLoader fxmlLoader = new FXMLLoader(Demo.class.getResource("AQDataTable_Supervisor.fxml"));
@@ -28,9 +33,7 @@ public class Demo extends  Application{
         stage.setTitle("AQDATA");
         stage.setScene(scene);
         stage.show();
-        Dispatchdao dispatchdao = new Dispatchdao();
-        Map<String, List<AirQualityDataWrittenBySupervisor> > dispatchLog = dispatchdao.getDispatchLog();
-        System.out.println("dispatchLog:"+dispatchLog);
+
     }
     public static void main(String[] args) {
         launch();

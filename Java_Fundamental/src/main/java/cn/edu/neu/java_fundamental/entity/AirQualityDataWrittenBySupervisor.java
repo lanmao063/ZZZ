@@ -11,6 +11,7 @@ public class AirQualityDataWrittenBySupervisor {
     private String city;
     private String district;
     private String date;
+    private String submitterID;
 
     public AirQualityDataWrittenBySupervisor()
 
@@ -21,6 +22,8 @@ public class AirQualityDataWrittenBySupervisor {
         this.city = "none";
         this.district = "none";
         this.date = "none";
+        this.submitterID=null;
+
     }
 
     /**
@@ -33,6 +36,8 @@ public class AirQualityDataWrittenBySupervisor {
         this.city = city;
         this.district = district;
         this.date = date;
+        this.submitterID=null;
+
     }
 
 }
