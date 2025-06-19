@@ -72,7 +72,7 @@ public class AQDataTable_GriderController implements Initializable {
        GriderColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().griderID));
        AQLColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getAQL().getChinese_explain()));
        AreaColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getProvince()+cellData.getValue().data.getCity()+cellData.getValue().data.getDistrict()));
-       TimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getDate().toString()));
+       TimeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().data.getDate()));
        OperatorColumn.setCellValueFactory(cellData -> new SimpleStringProperty("删除这条数据"));
        OperatorColumn.setCellFactory(param-> new ClickableTextCell(event -> {
            AQDataGriderGroup group=(AQDataGriderGroup) event.getSource();
