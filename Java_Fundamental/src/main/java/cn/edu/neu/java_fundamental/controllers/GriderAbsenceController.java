@@ -19,8 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static cn.edu.neu.java_fundamental.util.FileTools.writeStringToFile;
-
 public class GriderAbsenceController {
 
     @FXML
@@ -38,25 +36,25 @@ public class GriderAbsenceController {
         String Input = absentReason.getText();
         Grider grider = (Grider) GlobalData.CURRENT_USER;
         if (Input.trim().isEmpty()) {
-            grider.setOnline(true);
             submit.setDisable(true);
-        } else {
-            grider.setOnline(false);
         }
         ObjectMapper mapper = new ObjectMapper();
         File file = new File("data/Grider.json");
+        File file1 = new File("data/GriderAbsenceReason.json");
 
         List<Grider> records = new ArrayList<>();
+        List<Grider> reason = new ArrayList<>();
 
-        // 如果文件存在，则读取已有数据
         if (file.exists()) {
             try {
                 records = Arrays.asList(mapper.readValue(file, Grider[].class));
+                reason = Arrays.asList(mapper.readValue(file1, Grider[].class));
             } catch (IOException e) {
                 System.out.println("读取旧数据失败，将创建新文件");
             }
         }
 
+// 更新当前 Grider 的在线状态
         for (Grider record : records) {
             if (record.getId().equals(grider.getId())) {
                 record.setOnline(grider.getIsOnline());
@@ -64,11 +62,25 @@ public class GriderAbsenceController {
             }
         }
 
-        // 写回文件
+// 更新请假理由（reason 列表）
+        boolean found = false;
+        for (Grider r : reason) {
+            if (r.getId().equals(grider.getId())) {
+                r.setAbsentReason(Input);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            grider.setAbsentReason(Input);
+            reason.add(grider);
+        }
+
+// 写回文件
         mapper.writeValue(file, records);
-            System.out.println("写入状态成功");
-            mapper.writeValue(new File("data/GriderAbsenceRecord.json"), Input);
-            System.out.println("写入假条成功");
+        mapper.writeValue(file1, reason);
+        System.out.println("写入状态成功");
+        System.out.println("写入假条成功");
     }
 
     @FXML

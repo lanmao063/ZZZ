@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
 
-import static cn.edu.neu.java_fundamental.util.GlobalData.Load;
-
 public class GriderWorkController {
 
 

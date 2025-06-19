@@ -1,18 +1,14 @@
 package cn.edu.neu.java_fundamental.controllers;
 
-import cn.edu.neu.java_fundamental.LoginApplication;
 import cn.edu.neu.java_fundamental.mynode.AsideMenuButton;
 import cn.edu.neu.java_fundamental.mynode.desc.AsideMenuButtonInfo;
-import cn.edu.neu.java_fundamental.util.FXMLTools;
 import cn.edu.neu.java_fundamental.util.GlobalData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 

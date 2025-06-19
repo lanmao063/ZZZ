@@ -37,13 +37,7 @@ public class GriderFeedbackController {
     @FXML
     void feedback(ActionEvent event) {
 
-        String Inputso2= so2.getText();
-        String Inputco= co.getText();
-        String Inputspm= spm.getText();
 
-        if (Inputso2.trim().isEmpty() || Inputspm.trim().isEmpty() || Inputco.trim().isEmpty()) {
-            feedback.setDisable(true);
-        } else {
             try {
                 double so2Value = Double.parseDouble(so2.getText());
                 double coValue = Double.parseDouble(co.getText());
@@ -69,7 +63,7 @@ public class GriderFeedbackController {
             } catch (IOException e) {
                 showAlert("写入失败", "无法写入文件: " + e.getMessage());
             }
-        }
+
     }
     public void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
