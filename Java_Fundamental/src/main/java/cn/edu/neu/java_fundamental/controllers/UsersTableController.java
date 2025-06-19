@@ -17,6 +17,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,6 +30,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.File;
 import java.io.IOException;
@@ -141,26 +143,34 @@ public class UsersTableController implements Initializable {
                 GlobalData.secStage.initModality(Modality.APPLICATION_MODAL);
                 GlobalData.secStage.setTitle("用户管理");
                 GlobalData.secStage.setScene(scene);
+                AdminRoleController adminRoleController = loader.getController();
+                adminRoleController.setOnWindowCloseCallback((v) -> refreshUserTable());
+                GlobalData.secStage.setOnHidden(new EventHandler<WindowEvent>() {
+                    @Override
+                    public void handle(WindowEvent event) {
+                        // 在窗口关闭时执行回调
+                        if (adminRoleController.onWindowCloseCallback != null) {
+                            adminRoleController.onWindowCloseCallback.accept(null);
+                        }
+                    }
+                });
                 GlobalData.secStage.showAndWait();
-
             } catch (IOException e) {
                 System.out.println("指派失败"+e.getMessage());
             }
-
-
-
-
         }
         ));
-
+        refreshUserTable();
+    }
+    public void refreshUserTable() {
+        System.out.println("正在刷新用户表格...");
+        users.clear(); // 清空当前列表
         users.addAll(new Supervisordao().getAllSupervisors());
         users.addAll(new Griderdao().getAllGriders());
         users.addAll(new Admindao().getAllAdministrators());
-        TV_users.setItems(users);
-
-
-
-
+        TV_users.setItems(users); // 重新设置表格的数据源
+        TV_users.refresh(); // 强制 TableView 重新绘制
+        System.out.println("用户表格刷新完成。");
     }
 
 }

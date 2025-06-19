@@ -59,8 +59,6 @@ public class GriderFeedbackController {
 
                 GriderSubmit submitter = new GriderSubmit();
                 submitter.addAirQualityData(grider, data);
-
-
                 // 显示成功提示
                 showAlert("提交成功", "数据已成功写入 GriderSubmitLog.json 文件");
 
@@ -69,8 +67,6 @@ public class GriderFeedbackController {
             } catch (IOException e) {
                 showAlert("写入失败", "无法写入文件: " + e.getMessage());
             }
-
-
     }
     public void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
