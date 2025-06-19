@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.ChooseGriderController">
+   <children>
+      <HBox prefHeight="30.0" prefWidth="1100.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="450.0" />
+            <Label layoutX="450.0" prefHeight="30.0" prefWidth="200.0" text="                 选择网格员" />
+            <Label layoutX="650.0" prefHeight="30.0" prefWidth="450.0" />
+         </children>
+      </HBox>
+      <TableView fx:id="TV_ChooseGrider" layoutY="30.0" prefHeight="630.0" prefWidth="1100.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" prefWidth="150" text="网格员姓名" />
+            <TableColumn fx:id="IDColumn" prefWidth="200" text="网格员ID" />
+            <TableColumn fx:id="AreaColumn" prefWidth="350" text="负责区域" />
+            <TableColumn fx:id="ScoreColumn" prefWidth="100" text="积分" />
+            <TableColumn fx:id="ConditionColumn" prefWidth="150" text="工作状态" />
+          <TableColumn fx:id="ChooseColumn" prefWidth="150" text="选择" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
