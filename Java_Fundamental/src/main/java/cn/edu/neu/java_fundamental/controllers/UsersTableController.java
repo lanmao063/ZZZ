@@ -100,19 +100,33 @@ public class UsersTableController implements Initializable {
             String clazz;
             if(supervisor instanceof Administrator) {
                 clazz = "管理员";
-                GlobalData.EDITING_USER_ROLE = "Administrator";
             }
-            else if(supervisor instanceof Grider)
-                clazz="网格员";
-            else
-                clazz="公众监督员";
+            else if(supervisor instanceof Grider) {
+                clazz = "网格员";
+            }
+            else {
+                clazz = "公众监督员";
+            }
                 return new SimpleStringProperty(clazz);
         });
         EditColumn.setCellValueFactory(cellData->new SimpleStringProperty("编辑"));
         EditColumn.setCellFactory(param->new ClickableTextCell<Supervisor>(event-> {
             System.out.println("管理员点击了信息编辑字段");
-            Supervisor supervisor = (Supervisor) event.getSource();
+            Object source = event.getSource();
+            if (!(source instanceof Supervisor supervisor)) {
+                System.err.println("点击单元格的 source 不是 Supervisor 类型！");
+                return;
+            }
             GlobalData.EDITING_USER = supervisor;
+            if(supervisor instanceof Administrator) {
+                GlobalData.EDITING_USER_ROLE = "Administrator";
+            }
+            else if(supervisor instanceof Grider) {
+                GlobalData.EDITING_USER_ROLE = "Grider";
+            }
+            else {
+                GlobalData.EDITING_USER_ROLE = "Supervisor";
+            }
             try{
                 URL fxmlLocation = getClass().getResource("/cn/edu/neu/java_fundamental/AdminRole.fxml");
                 if (fxmlLocation == null) {

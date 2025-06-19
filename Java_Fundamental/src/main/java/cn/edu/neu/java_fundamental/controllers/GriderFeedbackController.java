@@ -42,7 +42,6 @@ public class GriderFeedbackController {
     @FXML
     void feedback(ActionEvent event) {
 
-
             try {
                 double so2Value = Double.parseDouble(so2.getText());
                 double coValue = Double.parseDouble(co.getText());
@@ -50,15 +49,17 @@ public class GriderFeedbackController {
 
                 // 构造数据实体
                 AirQualityDataWrittenByGrider data = new AirQualityDataWrittenByGrider(
-                        CURRENT_GRIDER.getIsOnline(), currentGrid.getProvince(), currentGrid.getCity(), currentGrid.getDistrict(), currentGrid.getDate(), so2Value, coValue, spmValue
+                        CURRENT_GRIDER.getIsOnline(), currentGrid.getProvince(), currentGrid.getCity(),
+                        currentGrid.getDistrict(), currentGrid.getDate(),
+                        so2Value, coValue, spmValue
                 );
 
                 Grider grider = new Grider();
                 grider.setId(CURRENT_GRIDER.getId());
-                grider.setOnline(CURRENT_GRIDER.getIsOnline());
 
                 GriderSubmit submitter = new GriderSubmit();
                 submitter.addAirQualityData(grider, data);
+
 
                 // 显示成功提示
                 showAlert("提交成功", "数据已成功写入 GriderSubmitLog.json 文件");
@@ -68,6 +69,7 @@ public class GriderFeedbackController {
             } catch (IOException e) {
                 showAlert("写入失败", "无法写入文件: " + e.getMessage());
             }
+
 
     }
     public void showAlert(String title, String message) {

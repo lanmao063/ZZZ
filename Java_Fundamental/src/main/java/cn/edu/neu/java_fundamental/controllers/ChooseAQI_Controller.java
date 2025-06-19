@@ -2,6 +2,7 @@ package cn.edu.neu.java_fundamental.controllers;
 import cn.edu.neu.java_fundamental.dao.SupervisorSubmit;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
+import cn.edu.neu.java_fundamental.util.AQI_Calculator;
 import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -110,7 +111,6 @@ public class ChooseAQI_Controller {
             default -> null;
         };
         AirQualityDataWrittenBySupervisor airQualityDataWrittenBySupervisor = new AirQualityDataWrittenBySupervisor();
-        airQualityDataWrittenBySupervisor.setProvince(province);
         airQualityDataWrittenBySupervisor.setCity(city);
         airQualityDataWrittenBySupervisor.setDistrict(district);
         airQualityDataWrittenBySupervisor.setDate(formattedDate);

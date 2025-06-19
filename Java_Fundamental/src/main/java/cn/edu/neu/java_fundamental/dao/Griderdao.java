@@ -16,13 +16,22 @@ public class Griderdao extends Userdao<Grider>{
         }
         return griders;
     }
-    public int addGrider(Supervisor supervisor) throws IOException {
-        Grider grider = (Grider) supervisor;
-        grider.setScore(0);
-        grider.setOnline(true);
-        grider.setArea("null");
+    public int addGrider(Grider grider) throws IOException {
         griders.add(grider);
         return addSingleData(grider, GRIDER_FILE);
+    }
+    public int deleteGrider(Grider grider) throws IOException {
+        griders.remove(grider);
+        return deleteSingleData(grider.getId(), GRIDER_FILE);
+    }
+    public int updateGrider(Grider grider) throws IOException {
+        for (int i = 0; i < griders.size(); i++) {
+            if (griders.get(i).getId().equals(grider.getId())) {
+                griders.set(i, grider);
+                break;
+            }
+        }
+        return updateSingleData(grider, GRIDER_FILE);
     }
 
     @Override

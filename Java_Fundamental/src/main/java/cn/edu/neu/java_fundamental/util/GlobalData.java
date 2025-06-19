@@ -64,6 +64,7 @@ public class GlobalData {
     static{
         AsideMenuButtonInfo info1 = new AsideMenuButtonInfo("空气质量数据管理", "leaf.png", actionEvent -> {
             Load("/cn/edu/neu/java_fundamental/AQDataTable_Supervisor.fxml");
+            System.out.println("空气质量数据管理");
         });
         AsideMenuButtonInfo info2 = new AsideMenuButtonInfo("空气质量检测", "light.png", actionEvent -> {
             Load("/cn/edu/neu/java_fundamental/AQDataTable_Grider.fxml");
