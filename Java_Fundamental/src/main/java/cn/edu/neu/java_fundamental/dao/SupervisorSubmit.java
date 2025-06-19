@@ -39,6 +39,7 @@ public class SupervisorSubmit {
      * @return int数字表示写入成功与否
      */
     public int addAirQualityData(Supervisor supervisor, AirQualityDataWrittenBySupervisor data) throws IOException {
+        data.setSubmitterID(supervisor.getId());
         if(supervisorSubmitLog==null){
             readAirQualityDatum();
             if(supervisorSubmitLog==null)
