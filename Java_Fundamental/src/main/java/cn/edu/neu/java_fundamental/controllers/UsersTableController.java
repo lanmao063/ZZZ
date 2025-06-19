@@ -7,15 +7,22 @@ import cn.edu.neu.java_fundamental.entity.Administrator;
 import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.mynode.ClickableTextCell;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -89,7 +96,27 @@ public class UsersTableController implements Initializable {
         EditColumn.setCellFactory(param->new ClickableTextCell<Supervisor>(event->{
             System.out.println("管理员点击了信息编辑字段");
             Supervisor supervisor = (Supervisor) event.getSource();
-
+            File file=new File("data/Supervisor.json");
+            JsonNode root = null;
+            if (root.isArray()) {
+                ArrayNode users = (ArrayNode) root;
+                for (int i = 0; i < users.size(); i++) {
+                    JsonNode userNode = users.get(i);
+                    if (userNode.get("id").asText().equals(supervisor.getId())) {
+                        ((ObjectNode) userNode).put("name","默认用户");
+                        ((ObjectNode) userNode).put("password","000000" );
+                        System.out.println("User information init successfully.");
+                        break;
+                    }
+                }
+                ObjectMapper mapper = new ObjectMapper();
+                try {
+                    mapper.writerWithDefaultPrettyPrinter().writeValue(file,root);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                System.out.println("User information file updated successfully.");
+            }
             System.out.println(supervisor);
 
         }));

@@ -1,7 +1,4 @@
 package cn.edu.neu.java_fundamental.controllers;
-
-import cn.edu.neu.java_fundamental.dao.DaoFactory;
-import cn.edu.neu.java_fundamental.dao.Userdao;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.util.GlobalData;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -15,7 +12,6 @@ import javafx.scene.control.TextField;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 public class RenewPasswordController {
 

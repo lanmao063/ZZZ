@@ -60,9 +60,13 @@ public class GlobalData {
         AsideMenuButtonInfo info4 = new AsideMenuButtonInfo("数据可视化", "list.png", actionEvent -> {
             System.out.println("数据可视化");
         });
+        AsideMenuButtonInfo info5 = new AsideMenuButtonInfo("请假管理","moon.png",actionEvent -> {
+            System.out.println("请假管理");
+        });
         administratorSideButton.add(info1);
         administratorSideButton.add(info2);
         administratorSideButton.add(info3);
         administratorSideButton.add(info4);
+        administratorSideButton.add(info5);
     }
 }
