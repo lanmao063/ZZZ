@@ -21,7 +21,6 @@ import java.util.List;
 
 public class GriderWorkController {
 
-
     @FXML
     private VBox gridContainer;
 
@@ -32,6 +31,7 @@ public class GriderWorkController {
         for (GridInfo grid : gridInfoList) {
             HBox hbox = new HBox(10);
             hbox.setAlignment(Pos.CENTER_LEFT);
+
 
             TextField textField = new TextField(formatGridInfo(grid));
             textField.setPrefWidth(800);
