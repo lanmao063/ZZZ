@@ -57,7 +57,7 @@ public class GriderAbsenceController {
 // 更新当前 Grider 的在线状态
         for (Grider record : records) {
             if (record.getId().equals(grider.getId())) {
-                record.setOnline(grider.getIsOnline());
+                record.setIsOnline(grider.getIsOnline());
                 break;
             }
         }

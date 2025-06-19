@@ -22,4 +22,8 @@ public class Grider extends Supervisor {
     {
         return isOnline;
     }
+    public void setIsOnline(boolean b)
+    {
+        isOnline=b;
+    }
 }

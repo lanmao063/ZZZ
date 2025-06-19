@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.LeaveRequestTableController">
+   <children>
+      <HBox prefHeight="30.0" prefWidth="1100.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="450.0" text="    " />
+            <Label layoutX="450.0" prefHeight="30.0" prefWidth="200.0" text="                     请假申请" />
+            <Label layoutX="650.0" prefHeight="30.0" prefWidth="450.0" text="      " />
+         </children>
+      </HBox>
+      <TableView fx:id="TV_LeaveRequest" layoutY="30.0" prefHeight="660.0" prefWidth="1100.0">
+        <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="75" text="网格员" />
+            <TableColumn fx:id="IDColumn" prefWidth="125" text="ID" />
+            <TableColumn fx:id="AreaColumn" prefWidth="200" text="负责区域" />
+            <TableColumn fx:id="reasonColumn" prefWidth="400" text="请假理由" />
+            <TableColumn fx:id="scoreColumn" prefWidth="100" text="积分" />
+            <TableColumn fx:id="applyColumn" prefWidth="100" text="同意申请" />
+            <TableColumn fx:id="rejectColumn" prefWidth="100" text="驳回申请" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

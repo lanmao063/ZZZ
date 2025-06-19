@@ -12,8 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import lombok.Setter;
 
 import java.io.IOException;
@@ -100,7 +98,6 @@ public class AdminRoleController implements Initializable {
             }
         } catch (IOException e) {
             System.err.println("删除原用户时发生 IO 错误：" + e.getMessage());
-            e.printStackTrace();
         }
 
     }
@@ -174,7 +171,7 @@ public class AdminRoleController implements Initializable {
         grider.setPassword(GlobalData.EDITING_USER.getPassword());
         grider.setSex(GlobalData.EDITING_USER.getSex());
         grider.setScore(0);
-        grider.setOnline(true);
+        grider.setIsOnline(true);
         Griderdao griderdao = new Griderdao();
         int addRes = griderdao.addGrider(grider);
         if (addRes != -1) {
