@@ -31,6 +31,9 @@ public class RenewPersonalFileController {
         if (newName.isEmpty() || newPhoneNumber.isEmpty()) {
             System.out.println("Fields cannot be empty.");
         }
+        else if (newPhoneNumber.length() != 11 || !newPhoneNumber.matches("\\d+")) {
+            System.out.println("Phone number must be 11 digits long and contain only numbers.");
+        }
         else {
             Supervisor currentUser = GlobalData.CURRENT_USER;
             String filename="data/"+GlobalData.USER_ROLE+".json";

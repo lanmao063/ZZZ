@@ -69,10 +69,11 @@ public class LoginController {
     void doReg(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/register.fxml"));
         GridPane gridPane = fxmlLoader.load();
-        Scene scene = new Scene(gridPane, 400, 300);
+        Scene scene = new Scene(gridPane, 700, 500);
         Stage stage  = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("注册");
-        stage.setWidth(400);
+        stage.setWidth(700);
+        stage.setHeight(500);
         stage.setScene(scene);
         stage.show();
     }
