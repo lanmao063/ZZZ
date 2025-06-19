@@ -29,6 +29,7 @@ public class AirQualityDataWrittenBySupervisor {
         this.text = "none";
     }
 
+
     /**
      *监督员只能估计空气质量等级AQL，不能给出具体数值
      */
@@ -42,4 +43,10 @@ public class AirQualityDataWrittenBySupervisor {
         this.text = text;
     }
 
+    public AirQualityDataWrittenBySupervisor(String province, String city, String district, String date) {
+        this.province = province;
+        this.city = city;
+        this.district = district;
+        this.date = date;
+    }
 }
