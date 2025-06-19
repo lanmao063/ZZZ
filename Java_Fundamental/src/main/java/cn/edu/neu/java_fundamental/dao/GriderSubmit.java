@@ -6,7 +6,10 @@ import cn.edu.neu.java_fundamental.util.FileTools;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +36,9 @@ public class GriderSubmit  {
  * 添加提交数据并写入
  */
     public int addAirQualityData(Grider grider, AirQualityDataWrittenByGrider data) throws IOException {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        data.setDate(formatter.format(LocalDateTime.now()));
+
         if (griderSubmitLog==null){
             readAirQualityDatum();
             if (griderSubmitLog==null)
