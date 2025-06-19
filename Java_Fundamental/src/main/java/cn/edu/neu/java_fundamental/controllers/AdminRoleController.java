@@ -14,12 +14,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Consumer;
 
 public class AdminRoleController implements Initializable {
+    @Setter
+    Consumer<Void> onWindowCloseCallback;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -98,7 +102,6 @@ public class AdminRoleController implements Initializable {
             System.err.println("删除原用户时发生 IO 错误：" + e.getMessage());
             e.printStackTrace();
         }
-
 
     }
 

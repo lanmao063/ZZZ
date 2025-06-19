@@ -2,8 +2,12 @@ package cn.edu.neu.java_fundamental.entity;
 
 import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
+@Getter
+@Setter
 public class AirQualityDataWrittenBySupervisor {
 
     private AirQualityLevel AQL;
