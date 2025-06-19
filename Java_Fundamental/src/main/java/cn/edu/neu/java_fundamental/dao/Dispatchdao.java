@@ -47,7 +47,7 @@ public class Dispatchdao {
 
     }
 
-    public int addDispatchLog(Grider grider, AirQualityDataWrittenBySupervisor  data) throws IOException{
+    public int addDispatchLog(Grider grider, AirQualityDataWrittenBySupervisor  data) {
         if(dispatchLog == null) {
             readDispatchLog();
             if(dispatchLog == null)
@@ -57,10 +57,14 @@ public class Dispatchdao {
             dispatchLog.get(grider.getId()).add(data);
             else
                 dispatchLog.put(grider.getId(), java.util.List.of(data));
-
+            try{
             ObjectMapper mapper = new ObjectMapper();
             String json = mapper.writeValueAsString(dispatchLog);
             return FileTools.writeStringToFile(filename,json);
+            } catch (Exception e) {
+                System.out.println("writeDispatchLog failed:"+e.getMessage());
+            return -1;
+        }
 
     }
 

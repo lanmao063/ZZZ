@@ -12,7 +12,7 @@ public class Griderdao extends Userdao<Grider>{
     private ArrayList<Grider> griders=new ArrayList<>();
     public List<Grider> getAllGriders(){
         if (griders.isEmpty()) {
-            readSingleData(GRIDER_FILE);
+            griders = readSingleData(GRIDER_FILE);
         }
         return griders;
     }
