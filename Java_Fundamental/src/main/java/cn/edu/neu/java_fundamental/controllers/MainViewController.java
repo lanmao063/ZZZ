@@ -45,6 +45,7 @@ public class MainViewController {
                 AsideMenuButton button = new AsideMenuButton(info);
                 AsideMenu.getChildren().add(button);
             }
+            GlobalData.mainViewController = this;
         } else if (Objects.equals(GlobalData.USER_ROLE, "Grider")) {
             System.out.println("Loading Grider View");
             AsideMenu.getChildren().clear();
