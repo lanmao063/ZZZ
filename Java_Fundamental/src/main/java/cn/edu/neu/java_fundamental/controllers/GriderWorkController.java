@@ -34,11 +34,11 @@ public class GriderWorkController {
             hbox.setAlignment(Pos.CENTER_LEFT);
 
             TextField textField = new TextField(formatGridInfo(grid));
-            textField.setPrefWidth(700);
+            textField.setPrefWidth(800);
             textField.setPrefHeight(50);
             textField.setEditable(false);
             Button myButton = new Button("去检测");
-            myButton.setPrefSize(80, 50);
+            myButton.setPrefSize(100, 50);
             myButton.setOnAction(event -> {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/GriderFeedback.fxml"));
@@ -54,8 +54,9 @@ public class GriderWorkController {
                     e.printStackTrace();
                 }
             });
-            Label label = new Label(grid.getAQL());
-            label.setPrefSize(200, 50);
+            Label label = new Label(grid.getAQL().getChinese_explain());
+            label.setStyle( "-fx-text-fill: " + grid.getAQL().getColor() + ";");
+            label.setPrefSize(50, 50);
 
             hbox.getChildren().addAll(label, textField, myButton);
             gridContainer.getChildren().add(hbox);
