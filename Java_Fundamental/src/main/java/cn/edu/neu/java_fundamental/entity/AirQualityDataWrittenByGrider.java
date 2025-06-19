@@ -5,8 +5,6 @@ import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.Date;
-
 
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -17,7 +15,7 @@ public class AirQualityDataWrittenByGrider extends AirQualityDataWrittenBySuperv
     private double co_concentration;
     private double spm_concentration;
 
-    public AirQualityDataWrittenByGrider() {
+    public AirQualityDataWrittenByGrider(boolean isOnline, String province, String city, String district, String date, double so2Value, double coValue, double spmValue) {
         super();
     }
 

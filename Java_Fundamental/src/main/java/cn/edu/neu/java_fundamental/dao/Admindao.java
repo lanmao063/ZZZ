@@ -3,6 +3,7 @@ package cn.edu.neu.java_fundamental.dao;
 import cn.edu.neu.java_fundamental.entity.Administrator;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

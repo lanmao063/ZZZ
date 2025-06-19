@@ -1,5 +1,6 @@
 package cn.edu.neu.java_fundamental.controllers;
 
+import cn.edu.neu.java_fundamental.LoginApplication;
 import cn.edu.neu.java_fundamental.dao.Admindao;
 import cn.edu.neu.java_fundamental.dao.Griderdao;
 import cn.edu.neu.java_fundamental.dao.Supervisordao;
@@ -7,6 +8,7 @@ import cn.edu.neu.java_fundamental.entity.Administrator;
 import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.mynode.ClickableTextCell;
+import cn.edu.neu.java_fundamental.util.GlobalData;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -16,15 +18,26 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import static cn.edu.neu.java_fundamental.util.GlobalData.Load;
 
 public class UsersTableController implements Initializable {
 
@@ -81,11 +94,14 @@ public class UsersTableController implements Initializable {
                 SimpleStringProperty(cellData.getValue().getSex()));
         ScoreColumn.setCellValueFactory(cellData ->
                 new SimpleIntegerProperty(cellData.getValue().getScore()).asObject());
+        System.out.println("加载用户表格");
         ClassColumn.setCellValueFactory(cellData->{
             Supervisor supervisor = cellData.getValue();
             String clazz;
-            if(supervisor instanceof Administrator)
-                clazz="管理员";
+            if(supervisor instanceof Administrator) {
+                clazz = "管理员";
+                GlobalData.EDITING_USER_ROLE = "Administrator";
+            }
             else if(supervisor instanceof Grider)
                 clazz="网格员";
             else
@@ -93,33 +109,35 @@ public class UsersTableController implements Initializable {
                 return new SimpleStringProperty(clazz);
         });
         EditColumn.setCellValueFactory(cellData->new SimpleStringProperty("编辑"));
-        EditColumn.setCellFactory(param->new ClickableTextCell<Supervisor>(event->{
+        EditColumn.setCellFactory(param->new ClickableTextCell<Supervisor>(event-> {
             System.out.println("管理员点击了信息编辑字段");
             Supervisor supervisor = (Supervisor) event.getSource();
-            File file=new File("data/Supervisor.json");
-            JsonNode root = null;
-            if (root.isArray()) {
-                ArrayNode users = (ArrayNode) root;
-                for (int i = 0; i < users.size(); i++) {
-                    JsonNode userNode = users.get(i);
-                    if (userNode.get("id").asText().equals(supervisor.getId())) {
-                        ((ObjectNode) userNode).put("name","默认用户");
-                        ((ObjectNode) userNode).put("password","000000" );
-                        System.out.println("User information init successfully.");
-                        break;
-                    }
+            GlobalData.EDITING_USER = supervisor;
+            try{
+                URL fxmlLocation = getClass().getResource("/cn/edu/neu/java_fundamental/AdminRole.fxml");
+                if (fxmlLocation == null) {
+                    System.err.println("找不到 FXML 文件，请检查路径是否正确！");
+                    new Alert(Alert.AlertType.ERROR, "无法找到 AdminRole.fxml 文件。").showAndWait();
+                    return;
                 }
-                ObjectMapper mapper = new ObjectMapper();
-                try {
-                    mapper.writerWithDefaultPrettyPrinter().writeValue(file,root);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                System.out.println("User information file updated successfully.");
-            }
-            System.out.println(supervisor);
+                FXMLLoader loader = new FXMLLoader(fxmlLocation);
+                AnchorPane anchorPane=loader.load();
+                Scene scene=new Scene(anchorPane);
+                GlobalData.secStage=new Stage();
+                GlobalData.secStage.initModality(Modality.APPLICATION_MODAL);
+                GlobalData.secStage.setTitle("用户管理");
+                GlobalData.secStage.setScene(scene);
+                GlobalData.secStage.showAndWait();
 
-        }));
+            } catch (IOException e) {
+                System.out.println("指派失败"+e.getMessage());
+            }
+
+
+
+
+        }
+        ));
 
         users.addAll(new Supervisordao().getAllSupervisors());
         users.addAll(new Griderdao().getAllGriders());
