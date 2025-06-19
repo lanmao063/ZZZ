@@ -55,6 +55,7 @@ public class LoginController {
                 Scene scene = new Scene(borderPane, GlobalData.WIDTH, GlobalData.HEIGHT);
                 GlobalData.primaryStage.setScene(scene);
                 GlobalData.primaryStage.setTitle("东软环保公众监督系统");
+                GlobalData.primaryStage.centerOnScreen();
                 GlobalData.primaryStage.show();
             } else
                 System.out.println("登录失败，请检查用户名或密码");
@@ -75,6 +76,7 @@ public class LoginController {
         stage.setWidth(700);
         stage.setHeight(500);
         stage.setScene(scene);
+        stage.centerOnScreen();
         stage.show();
     }
 

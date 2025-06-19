@@ -88,6 +88,7 @@ public class RegisterController {
                             stage.setWidth(700);
                             stage.setHeight(500);
                             stage.setScene(scene);
+                            stage.centerOnScreen();
                             stage.show();
                         } else System.out.println("注册失败 ");
                     } catch (IOException e) {
