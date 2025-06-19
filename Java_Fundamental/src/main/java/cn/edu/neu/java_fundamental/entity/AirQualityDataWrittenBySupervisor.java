@@ -12,7 +12,6 @@ public class AirQualityDataWrittenBySupervisor {
     private String district;
     private String date;
     private String text;
-    private String submitterID;
 
     public AirQualityDataWrittenBySupervisor()
 

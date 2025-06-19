@@ -14,3 +14,4 @@ public class Supervisor{
     private String sex;
     private int score;
 }
+
