@@ -1,6 +1,7 @@
 package cn.edu.neu.java_fundamental.dao;
 
 import cn.edu.neu.java_fundamental.entity.Administrator;
+import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 
 import java.io.File;
@@ -21,12 +22,22 @@ public class Admindao extends Userdao<Administrator> {
         }
         return administrators;
     }
-    public int addAdministrator(Supervisor supervisor) throws IOException {
-        Administrator administrator = (Administrator)supervisor;
-        administrator.setScore(0);
-        administrator.setTerritory("null");
+    public int addAdministrator(Administrator administrator) throws IOException {
         administrators.add(administrator);
         return addSingleData(administrator, ADMINISTRATOR_FILE);
+    }
+    public int deleteAdministrator(Administrator administrator) throws IOException {
+        administrators.remove(administrator);
+        return deleteSingleData(administrator.getId(), ADMINISTRATOR_FILE);
+    }
+    public int updateAdmin(Administrator administrator) throws IOException {
+        for (int i = 0; i < administrators.size(); i++) {
+            if (administrators.get(i).getId().equals(administrator.getId())) {
+                administrators.set(i, administrator);
+                break;
+            }
+        }
+        return updateSingleData(administrator, ADMINISTRATOR_FILE);
     }
 
 }
