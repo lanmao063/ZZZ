@@ -1,12 +1,15 @@
 package cn.edu.neu.java_fundamental.util;
 
 import cn.edu.neu.java_fundamental.controllers.MainViewController;
+import cn.edu.neu.java_fundamental.controllers.PersonalPageController;
 import cn.edu.neu.java_fundamental.dao.DaoFactory;
 import cn.edu.neu.java_fundamental.dao.Userdao;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.mynode.desc.AsideMenuButtonInfo;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +32,8 @@ public class GlobalData {
     public static AirQualityDataWrittenBySupervisor CURRENT_CHOOSE_AQ_DATA = null;
     public static int ERROR_CODE = 0;
     public static Stage secStage=null;
+    public static Supervisor EDITING_USER = null; //用于编辑用户信息的实体类引用
+    public static String EDITING_USER_ROLE = null;
     public static void setLoginData(Supervisor userEntity,String role) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         USER_ROLE=role;
         CURRENTDAO= DaoFactory.createDao(role);
