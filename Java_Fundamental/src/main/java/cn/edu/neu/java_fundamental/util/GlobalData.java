@@ -6,11 +6,15 @@ import cn.edu.neu.java_fundamental.dao.Userdao;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
 import cn.edu.neu.java_fundamental.entity.Supervisor;
 import cn.edu.neu.java_fundamental.mynode.desc.AsideMenuButtonInfo;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static cn.edu.neu.java_fundamental.util.FXMLTools.loadContentIntoPane;
 
 public class GlobalData {
     public static String USER_ROLE = null;
@@ -53,13 +57,13 @@ public class GlobalData {
 
     static{
         AsideMenuButtonInfo info1 = new AsideMenuButtonInfo("空气质量数据管理", "leaf.png", actionEvent -> {
-            System.out.println("空气质量数据管理");
+            Load("/cn/edu/neu/java_fundamental/AQDataTable_Supervisor.fxml");
         });
-        AsideMenuButtonInfo info2 = new AsideMenuButtonInfo("任务指派", "light.png", actionEvent -> {
-            System.out.println("任务指派");
+        AsideMenuButtonInfo info2 = new AsideMenuButtonInfo("空气质量检测", "light.png", actionEvent -> {
+            Load("/cn/edu/neu/java_fundamental/AQDataTable_Grider.fxml");
         });
         AsideMenuButtonInfo info3 = new AsideMenuButtonInfo("用户管理", "link.png", actionEvent -> {
-            System.out.println("用户管理");
+            Load("/cn/edu/neu/java_fundamental/UsersTable.fxml");
         });
         AsideMenuButtonInfo info4 = new AsideMenuButtonInfo("数据可视化", "list.png", actionEvent -> {
             System.out.println("数据可视化");

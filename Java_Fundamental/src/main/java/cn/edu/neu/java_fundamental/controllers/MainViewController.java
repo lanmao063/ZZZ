@@ -38,6 +38,7 @@ public class MainViewController {
     @FXML
     private void initialize() {
         initTag();
+        GlobalData.mainViewController = this;
         if (Objects.equals(GlobalData.USER_ROLE, "Administrator")) {
             System.out.println("Loading Administrator View");
             AsideMenu.getChildren().clear();
@@ -52,7 +53,6 @@ public class MainViewController {
                 AsideMenuButton btn = new AsideMenuButton(info);
                 AsideMenu.getChildren().add(btn);
             }
-            GlobalData.mainViewController = this;
         }
     }
 
