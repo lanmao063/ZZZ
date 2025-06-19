@@ -14,22 +14,13 @@
                </font>
             </Label>
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label fx:id="timetag" alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="107.0" text="早上好！">
+            <Label fx:id="personalfiletag" alignment="CENTER_RIGHT" prefHeight="68.0" prefWidth="957.0" text="早上好，公众监督员默认用户">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="roletag" prefHeight="68.0" prefWidth="111.0" text="公众监督员" textAlignment="RIGHT">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label fx:id="userNametag" prefHeight="89.0" prefWidth="128.0" text="默认用户">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Button fx:id="personal_btn" mnemonicParsing="false" onAction="#dopersonal" prefHeight="75.0" prefWidth="152.0" text="个人空间">
+            <HBox prefHeight="68.0" prefWidth="117.0" />
+            <Button fx:id="personal_btn" mnemonicParsing="false" onAction="#dopersonal" prefHeight="68.0" prefWidth="224.0" text="个人空间">
                <font>
                   <Font size="20.0" />
                </font>
