@@ -76,4 +76,32 @@ public class Dispatchdao {
         }
         return dispatchLog;
     }
+
+
+    public int deleteDispatchLog(Grider grider,AirQualityDataWrittenBySupervisor  data) {
+        if(dispatchLog == null) {
+            readDispatchLog();
+            if(dispatchLog == null)
+                dispatchLog=new HashMap<>();
+        }
+        if(!dispatchLog.containsKey(grider.getId())){
+            System.out.println("deleteDispatchLog failed:"+"grider not found");
+            return -1;
+        }
+        if(dispatchLog.get(grider.getId()).contains(data)) {
+            dispatchLog.get(grider.getId()).remove(data);
+            try {
+                ObjectMapper mapper = new ObjectMapper();
+                String json = mapper.writeValueAsString(dispatchLog);
+                return FileTools.writeStringToFile(filename, json);
+            } catch (Exception e) {
+                System.out.println("writeDispatchLog failed:" + e.getMessage());
+                return -1;
+            }
+        }else{
+            System.out.println("deleteDispatchLog failed:"+"data not found");
+            return -1;
+
+        }
+    }
 }
