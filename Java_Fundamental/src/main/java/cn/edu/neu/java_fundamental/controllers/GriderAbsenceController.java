@@ -40,7 +40,7 @@ public class GriderAbsenceController {
         }
         ObjectMapper mapper = new ObjectMapper();
         File file = new File("data/Grider.json");
-        File file1 = new File("data/GriderAbsenceReason.json");
+        File file1 = new File("data/GriderAbsenceRecord.json");
 
         List<Grider> records = new ArrayList<>();
         List<Grider> reason = new ArrayList<>();

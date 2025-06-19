@@ -1,5 +1,6 @@
 package cn.edu.neu.java_fundamental.controllers;
 
+import cn.edu.neu.java_fundamental.dao.Dispatchdao;
 import cn.edu.neu.java_fundamental.dao.GriderSubmit;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenByGrider;
 import cn.edu.neu.java_fundamental.entity.GridInfo;

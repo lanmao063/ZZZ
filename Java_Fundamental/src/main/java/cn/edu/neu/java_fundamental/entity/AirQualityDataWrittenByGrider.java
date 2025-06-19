@@ -26,7 +26,7 @@ public class AirQualityDataWrittenByGrider extends AirQualityDataWrittenBySuperv
      * AQI和AQL会自动计算
      */
     public AirQualityDataWrittenByGrider(boolean isOnline, String province, String city, String district, String date, double so2_concentration, double co_concentration, double spm_concentration) {
-        super();
+        super(province, city, district, date);
         this.isOnline = isOnline;
         this.so2_concentration = so2_concentration;
         this.co_concentration = co_concentration;
