@@ -22,7 +22,7 @@ public class Demo extends  Application{
     @Override
     public void start(Stage stage) throws IOException {
      
-        FXMLLoader fxmlLoader = new FXMLLoader(Demo.class.getResource("AQDataTable_Supervisor.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Demo.class.getResource("UsersTable.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
         Scene scene = new Scene(anchorPane, 1100, 600);
         stage.setTitle("AQDATA");
