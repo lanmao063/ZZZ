@@ -58,12 +58,7 @@ public class RegisterController {
                 for (Supervisor user :  allUsers ) {
                         phonenumbers.add(user.getId());
                 }
-                for (String id : phonenumbers) {
-                        if (user_phonenumber.getText().equals(id)) {
-                                return true;
-                        }
-                }
-                return false;
+            return phonenumbers.contains(user_phonenumber.getText());
         }
         @FXML
         void doregist(ActionEvent event) {

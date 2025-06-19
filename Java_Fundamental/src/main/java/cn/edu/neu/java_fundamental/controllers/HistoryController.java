@@ -47,6 +47,10 @@ public class HistoryController {
         h_text.setCellValueFactory(new PropertyValueFactory<>("text"));
 
         List<AirQualityDataWrittenBySupervisor> allData = airQualityDataWrittenBySupervisor.get(CURRENT_USER.getId());
+        if(allData == null) {
+            tabelview.setItems(FXCollections.observableArrayList());
+        }else {
         tabelview.setItems(FXCollections.observableArrayList(allData));
+    }
     }
 }
