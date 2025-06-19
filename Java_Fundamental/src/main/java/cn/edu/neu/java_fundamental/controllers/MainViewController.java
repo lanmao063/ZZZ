@@ -33,12 +33,33 @@ public class MainViewController {
     private Button personal_btn;
 
     @FXML
-    private Label personalfiletag;
+    private Label userNametag;
+
+    @FXML
+    private Label timetag;
+
+    @FXML
+    private Label roletag;
 
     @FXML
     private void initialize() {
-        initTag();
-        GlobalData.mainViewController = this;
+        LocalDateTime now = LocalDateTime.now();
+        if(now.getHour()<12){
+            timetag.setText("早上好，");
+        }else if(now.getHour()==12){
+            timetag.setText("中午好，");
+        }else if(now.getHour()<17){
+            timetag.setText("下午好，");
+        }else{
+            timetag.setText("晚上好，");
+        }
+        switch(ChineseRoleName(GlobalData.USER_ROLE)){
+            case "管理员" -> roletag.setText("管理员");
+            case "网格员" -> roletag.setText("网格员");
+            case "公众监督员" -> roletag.setText("公众监督员");
+            default -> roletag.setText("未知角色");
+        }
+        userNametag.setText(GlobalData.CURRENT_USER.getName());
         if (Objects.equals(GlobalData.USER_ROLE, "Administrator")) {
             System.out.println("Loading Administrator View");
             AsideMenu.getChildren().clear();
@@ -53,24 +74,21 @@ public class MainViewController {
                 AsideMenuButton btn = new AsideMenuButton(info);
                 AsideMenu.getChildren().add(btn);
             }
-        }
-    }
+            GlobalData.mainViewController = this;
 
-    private void initTag() {
-        personalfiletag.setText(getTimeHello()+"，"+ChineseRoleName(GlobalData.USER_ROLE)+" "+GlobalData.CURRENT_USER.getName());
-
-    }
-    private String getTimeHello() {
-        LocalDateTime now = LocalDateTime.now();
-        if(now.getHour() < 12) {
-            return "早上好";
-        } else if (now.getHour() == 12) {
-            return "中午好";
-        } else if (now.getHour() < 18) {
-            return "下午好";
-        } else {
-            return "晚上好";
         }
+        else if (Objects.equals(GlobalData.USER_ROLE, "Supervisor")) {
+            System.out.println("Loading Supervisor View");
+            AsideMenu.getChildren().clear();
+            for (AsideMenuButtonInfo info : GlobalData.supervisorSideButton) {
+                AsideMenuButton btn = new AsideMenuButton(info);
+                AsideMenu.getChildren().add(btn);
+            }
+            GlobalData.mainViewController = this;
+
+        }
+
+
     }
 
     public void navigateTo(String fxmlPath) {

@@ -23,7 +23,8 @@ public class Grid {
                         data.getCity(),
                         data.getDistrict(),
                         data.getDate(),
-                        data.getAQL().toString()
+                        data.getAQL().toString(),
+                        data.getText()
                 ))
                 .collect(Collectors.toList());
         return gridInfos;

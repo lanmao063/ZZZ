@@ -26,6 +26,7 @@ public class GlobalData {
     public static final int HEIGHT=768;
     public static List<AsideMenuButtonInfo> administratorSideButton=new ArrayList<>();
     public static List<AsideMenuButtonInfo> griderAsideMenuButtons = new ArrayList<>();
+    public static List<AsideMenuButtonInfo> supervisorSideButton=new ArrayList<>();
     public static MainViewController mainViewController;
     public static Userdao<? extends Supervisor> CURRENTDAO = null;
     public static Supervisor CURRENT_USER = null;/***此为当前登录用户实体类的引用*/
@@ -82,4 +83,17 @@ public class GlobalData {
         administratorSideButton.add(info4);
         administratorSideButton.add(info5);
     }
+    static {
+        AsideMenuButtonInfo submit = new AsideMenuButtonInfo("提交监督数据", "moon.png",
+                actionEvent -> {
+                    Load("/cn/edu/neu/java_fundamental/ChooseAQI.fxml");
+                });
+        AsideMenuButtonInfo history = new AsideMenuButtonInfo("查看历史记录", "spread-left.png",
+                actionEvent -> {
+                    Load("/cn/edu/neu/java_fundamental/History.fxml");
+                });
+        supervisorSideButton.add(submit);
+        supervisorSideButton.add(history);
+    }
+
 }

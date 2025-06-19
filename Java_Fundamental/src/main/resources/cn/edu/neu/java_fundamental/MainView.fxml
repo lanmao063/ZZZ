@@ -8,7 +8,7 @@
    <top>
       <HBox prefHeight="68.0" prefWidth="1360.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="67.0" prefWidth="262.0" text="东软环保监督平台">
+            <Label prefHeight="67.0" prefWidth="290.0" text="东软环保监督平台">
                <font>
                   <Font size="24.0" />
                </font>
