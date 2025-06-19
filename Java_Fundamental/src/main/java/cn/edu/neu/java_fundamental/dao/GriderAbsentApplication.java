@@ -4,6 +4,8 @@ import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.util.FileTools;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,5 +28,38 @@ public class GriderAbsentApplication {
             }
         }
         return absentGriders;
+    }
+
+    public void addAbsentGrider(Grider grider) throws IOException {
+        String json = FileTools.readStringFromFile(filename);
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rootNode = mapper.readTree(json);
+
+        if (rootNode.isArray()) {
+            ArrayNode gridersArray = (ArrayNode) rootNode;
+            for (JsonNode griderNode : gridersArray) {
+                if (griderNode.get("id").asText().equals(grider.getId())) {
+                    ((ObjectNode)griderNode).put("absentReason", grider.getAbsentReason());
+                }
+            }
+        }
+    }
+    public void deleteAbsentGrider(Grider grider) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        String json = FileTools.readStringFromFile(filename);
+        JsonNode rootNode = mapper.readTree(json);
+
+        if (rootNode.isArray()) {
+            for (JsonNode griderNode : rootNode) {
+                if (griderNode.isObject() && griderNode.has("id") &&
+                        griderNode.get("id").asText().equals(grider.getId())) {
+                    // 删除字段
+                    ((ObjectNode) griderNode).remove("absentReason");
+                }
+            }
+        }
+
+        // 写回文件
+        FileTools.writeStringToFile(filename, mapper.writeValueAsString(rootNode));
     }
 }

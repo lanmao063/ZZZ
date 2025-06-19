@@ -6,9 +6,14 @@ import cn.edu.neu.java_fundamental.entity.GridInfo;
 import cn.edu.neu.java_fundamental.entity.Grider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -45,7 +50,7 @@ public class GriderFeedbackController {
 
                 // 构造数据实体
                 AirQualityDataWrittenByGrider data = new AirQualityDataWrittenByGrider(
-                        CURRENT_GRIDER.getIsOnline(), currentGrid.getProvince(), currentGrid.getCity(), currentGrid.getDistrict(), currentGrid.getDate(), currentGrid.getText(), so2Value, coValue, spmValue
+                        CURRENT_GRIDER.getIsOnline(), currentGrid.getProvince(), currentGrid.getCity(), currentGrid.getDistrict(), currentGrid.getDate(), so2Value, coValue, spmValue
                 );
 
                 Grider grider = new Grider();
@@ -71,6 +76,16 @@ public class GriderFeedbackController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    @FXML
+    void exit(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/MainView.fxml"));
+        Parent root = loader.load();
+        Scene CurrentScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) CurrentScene.getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 }
 

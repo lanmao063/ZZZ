@@ -1,5 +1,6 @@
 package cn.edu.neu.java_fundamental.entity;
 
+import cn.edu.neu.java_fundamental.util.AirQualityLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,16 +21,14 @@ public class GridInfo {
     private String city;
     private String district;
     private String date;
-    private String AQL;
-    private String text;
+    private AirQualityLevel AQL;
 
 
-    public GridInfo(String province, String city, String district, String date, String string,String text) {
+    public GridInfo(String province, String city, String district, String date, AirQualityLevel aql) {
         this.province = province;
         this.city = city;
         this.district = district;
         this.date = date;
-        this.AQL = string;
-        this.text = text;
+        this.AQL = aql;
     }
 }
