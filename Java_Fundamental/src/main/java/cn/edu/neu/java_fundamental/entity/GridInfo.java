@@ -21,13 +21,15 @@ public class GridInfo {
     private String district;
     private String date;
     private String AQL;
+    private String text;
 
 
-    public GridInfo(String province, String city, String district, String date, String string) {
+    public GridInfo(String province, String city, String district, String date, String string,String text) {
         this.province = province;
         this.city = city;
         this.district = district;
         this.date = date;
         this.AQL = string;
+        this.text = text;
     }
 }

@@ -45,7 +45,7 @@ public class GriderFeedbackController {
 
                 // 构造数据实体
                 AirQualityDataWrittenByGrider data = new AirQualityDataWrittenByGrider(
-                        CURRENT_GRIDER.getIsOnline(), currentGrid.getProvince(), currentGrid.getCity(), currentGrid.getDistrict(), currentGrid.getDate(), so2Value, coValue, spmValue
+                        CURRENT_GRIDER.getIsOnline(), currentGrid.getProvince(), currentGrid.getCity(), currentGrid.getDistrict(), currentGrid.getDate(), currentGrid.getText(), so2Value, coValue, spmValue
                 );
 
                 Grider grider = new Grider();
