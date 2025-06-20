@@ -48,7 +48,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="renewPersonalfile_btn" layoutX="588.0" layoutY="382.0" mnemonicParsing="false" onAction="#doRenewPersonalFile" prefHeight="55.0" prefWidth="132.0" text="修改个人信息">
+            <Button fx:id="renewPersonalfile_btn" layoutX="588.0" layoutY="382.0" mnemonicParsing="false" onAction="#doRenewPersonalFile" prefHeight="55.0" prefWidth="132.0" text="修改信息">
                <font>
                   <Font size="18.0" />
                </font>
