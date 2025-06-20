@@ -68,6 +68,6 @@ public class GriderAbsentApplication {
         }
 
         // 写回文件
-        FileTools.writeStringToFile(filename, mapper.writeValueAsString(rootNode));
+            FileTools.writeStringToFile(filename, mapper.writeValueAsString(rootNode));
     }
 }

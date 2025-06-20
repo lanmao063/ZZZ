@@ -39,6 +39,7 @@ public class LoginApplication extends Application {
 
 
 
+
         GlobalData.primaryStage=stage; // 设置全局变量
         stage.setTitle("登录");
         stage.setScene(scene);
