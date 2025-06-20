@@ -62,7 +62,6 @@ public class VisualizedDatumController {
         setupLineChart(LC_so2,0,data);
         setupLineChart(LC_co,1,data);
         setupLineChart(LC_spm,2,data);
-
     }
 
 

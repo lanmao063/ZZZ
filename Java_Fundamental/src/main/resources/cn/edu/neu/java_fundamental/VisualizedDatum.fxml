@@ -6,10 +6,9 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.VisualizedDatumController">
    <children>
-      <LineChart fx:id="LC_so2" prefHeight="220.0" prefWidth="600.0" title="SO2浓度曲线">
+      <LineChart fx:id="LC_so2" legendSide="TOP" legendVisible="false" prefHeight="220.0" prefWidth="600.0" title="SO2浓度曲线">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -17,7 +16,7 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <LineChart fx:id="LC_co" layoutY="220.0" prefHeight="220.0" prefWidth="600.0" title="CO浓度曲线">
+      <LineChart fx:id="LC_co" layoutY="220.0" legendSide="TOP" legendVisible="false" prefHeight="220.0" prefWidth="600.0" title="CO浓度曲线">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
@@ -25,7 +24,7 @@
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
-      <LineChart fx:id="LC_spm" layoutY="440.0" prefHeight="220.0" prefWidth="600.0" title="spm浓度曲线">
+      <LineChart fx:id="LC_spm" layoutY="440.0" legendSide="TOP" legendVisible="false" prefHeight="220.0" prefWidth="600.0" title="spm浓度曲线">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
