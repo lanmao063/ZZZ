@@ -54,6 +54,7 @@ public class ChooseGriderController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         Griderdao griderdao=new Griderdao();
         List<Grider> list=griderdao.getAllGriders();
+        list.sort((o1, o2) -> o2.getScore()-o1.getScore());
 
 
         nameColumn.setCellValueFactory(cellData->new SimpleStringProperty(cellData.getValue().getName()));
