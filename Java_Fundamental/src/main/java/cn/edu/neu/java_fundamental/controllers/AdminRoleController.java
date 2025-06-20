@@ -22,12 +22,17 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
+import static cn.edu.neu.java_fundamental.util.FXMLTools.ChineseRoleName;
+
 public class AdminRoleController implements Initializable {
     @Setter
     Consumer<Void> onWindowCloseCallback;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        user_idTag.setText(GlobalData.EDITING_USER.getId());
+        user_nameTag.setText(GlobalData.EDITING_USER.getName());
+        user_roleTag.setText(ChineseRoleName(GlobalData.EDITING_USER_ROLE));
 
     }
 
