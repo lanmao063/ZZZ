@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -99,9 +100,13 @@ public class AQDataTable_SupervisorController  implements Initializable {
                 Scene scene=new Scene(anchorPane);
                 GlobalData.secStage=new Stage();
                 GlobalData.secStage.initModality(Modality.APPLICATION_MODAL);
+                GlobalData.secStage.initStyle(StageStyle.UNDECORATED);
                 GlobalData.secStage.setTitle("选择指派的网格员");
                 GlobalData.secStage.setScene(scene);
                 GlobalData.secStage.showAndWait();
+                GlobalData.secStage.setResizable(false); // 禁止调整大小（可选）
+
+
                 if(GlobalData.ERROR_CODE!=1){
                     System.out.println("添加成功");
                     submit.deleteData(group.ID,group.data);

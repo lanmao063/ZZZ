@@ -23,6 +23,7 @@ import javafx.scene.Node;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 
 public class LoginController {
 
@@ -53,6 +54,17 @@ public class LoginController {
                 FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("MainView.fxml"));
                 BorderPane borderPane = (BorderPane) fxmlLoader.load();
                 Scene scene = new Scene(borderPane, GlobalData.WIDTH, GlobalData.HEIGHT);
+                URL cssUrl = getClass().getResource("/cn/edu/neu/java_fundamental/style.css");
+
+                if (cssUrl != null) {
+                    scene.getStylesheets().add(cssUrl.toExternalForm());
+                } else {
+                    System.err.println("Error: Stylesheet not found.");
+                    System.err.println("Classpath root: " + getClass().getResource("/"));
+                    System.err.println("Current resource URL using getResource: " + getClass().getResource("/cn/edu/neu/java_fundamental/style.css"));
+                    System.err.println("Current resource URL using ClassLoader: " + LoginApplication.class.getClassLoader().getResource("cn/edu/neu/java_fundamental/style.css"));
+                }
+
                 GlobalData.primaryStage.setScene(scene);
                 GlobalData.primaryStage.setTitle("东软环保公众监督系统");
                 GlobalData.primaryStage.centerOnScreen();
@@ -71,6 +83,17 @@ public class LoginController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/register.fxml"));
         GridPane gridPane = fxmlLoader.load();
         Scene scene = new Scene(gridPane, 700, 500);
+        URL cssUrl = getClass().getResource("/cn/edu/neu/java_fundamental/style.css");
+
+        if (cssUrl != null) {
+            scene.getStylesheets().add(cssUrl.toExternalForm());
+        } else {
+            System.err.println("Error: Stylesheet not found.");
+            System.err.println("Classpath root: " + getClass().getResource("/"));
+            System.err.println("Current resource URL using getResource: " + getClass().getResource("/cn/edu/neu/java_fundamental/style.css"));
+            System.err.println("Current resource URL using ClassLoader: " + LoginApplication.class.getClassLoader().getResource("cn/edu/neu/java_fundamental/style.css"));
+        }
+
         Stage stage  = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("注册");
         stage.setWidth(700);
