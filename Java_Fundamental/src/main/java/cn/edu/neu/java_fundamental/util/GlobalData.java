@@ -73,10 +73,10 @@ public class GlobalData {
             Load("/cn/edu/neu/java_fundamental/UsersTable.fxml");
         });
         AsideMenuButtonInfo info4 = new AsideMenuButtonInfo("数据可视化", "list.png", actionEvent -> {
-            System.out.println("数据可视化");
+            Load("/cn/edu/neu/java_fundamental/VisualizedDatum.fxml");
         });
         AsideMenuButtonInfo info5 = new AsideMenuButtonInfo("请假管理","moon.png",actionEvent -> {
-            System.out.println("请假管理");
+            Load("/cn/edu/neu/java_fundamental/LeaveRequestTable.fxml");
         });
         administratorSideButton.add(info1);
         administratorSideButton.add(info2);
