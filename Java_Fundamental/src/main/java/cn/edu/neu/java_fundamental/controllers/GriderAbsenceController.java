@@ -48,7 +48,7 @@ public class GriderAbsenceController {
         if (file.exists()) {
             try {
                 records = Arrays.asList(mapper.readValue(file, Grider[].class));
-                reason = Arrays.asList(mapper.readValue(file1, Grider[].class));
+                reason = new ArrayList<>(Arrays.asList(mapper.readValue(file1, Grider[].class)));
             } catch (IOException e) {
                 System.out.println("读取旧数据失败，将创建新文件");
             }
