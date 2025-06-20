@@ -75,13 +75,13 @@ public class MainViewController {
     public String initTime(){
         LocalDateTime now = LocalDateTime.now();
         if(now.getHour()<12){
-            return("早上好，");
+            return("早上好");
         }else if(now.getHour()==12){
-            return("中午好，");
+            return("中午好");
         }else if(now.getHour()<17){
-            return("下午好，");
+            return("下午好");
         }else{
-            return("晚上好，");
+            return("晚上好");
         }
     }
 

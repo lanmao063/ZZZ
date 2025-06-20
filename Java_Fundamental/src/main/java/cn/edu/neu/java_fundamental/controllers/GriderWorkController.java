@@ -34,7 +34,7 @@ public class GriderWorkController {
 
 
             TextField textField = new TextField(formatGridInfo(grid));
-            textField.setPrefWidth(800);
+            textField.setPrefWidth(750);
             textField.setPrefHeight(50);
             textField.setEditable(false);
             Button myButton = new Button("去检测");
@@ -58,7 +58,7 @@ public class GriderWorkController {
             });
             Label label = new Label(grid.getAQL().getChinese_explain());
             label.setStyle( "-fx-text-fill: " + grid.getAQL().getColor() + ";");
-            label.setPrefSize(50, 50);
+            label.setPrefSize(100, 50);
 
             hbox.getChildren().addAll(label, textField, myButton);
             gridContainer.getChildren().add(hbox);
