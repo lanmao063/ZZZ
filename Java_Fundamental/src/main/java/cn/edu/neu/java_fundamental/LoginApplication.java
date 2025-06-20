@@ -25,16 +25,7 @@ public class LoginApplication extends Application {
             System.err.println("Current resource URL using ClassLoader: " + LoginApplication.class.getClassLoader().getResource("cn/edu/neu/java_fundamental/style.css"));
         }
 
-        URL cssUrl1 = getClass().getResource("/cn/edu/neu/java_fundamental/LoginStyle.css");
 
-        if (cssUrl1 != null) {
-            scene.getStylesheets().add(cssUrl1.toExternalForm());
-        } else {
-            System.err.println("Error: Stylesheet not found.");
-            System.err.println("Classpath root: " + getClass().getResource("/"));
-            System.err.println("Current resource URL using getResource: " + getClass().getResource("/cn/edu/neu/java_fundamental/LoginStyle.css"));
-            System.err.println("Current resource URL using ClassLoader: " + LoginApplication.class.getClassLoader().getResource("cn/edu/neu/java_fundamental/LoginStyle.css"));
-        }
 
 
 
