@@ -72,6 +72,7 @@ public class LoginController {
                 GlobalData.primaryStage.setScene(scene);
                 GlobalData.primaryStage.setTitle("东软环保公众监督系统");
                 GlobalData.primaryStage.centerOnScreen();
+                GlobalData.primaryStage.setResizable(false);
                 GlobalData.primaryStage.show();
             } else {
                 System.out.println("登录失败，请检查用户名或密码");
@@ -106,10 +107,11 @@ public class LoginController {
         }
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("注册");
+        stage.setTitle("东软环境监督平台-注册");
         stage.setWidth(604);
         stage.setHeight(429);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }

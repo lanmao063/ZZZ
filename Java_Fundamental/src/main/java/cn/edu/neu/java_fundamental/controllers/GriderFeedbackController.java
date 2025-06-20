@@ -78,6 +78,7 @@ public class GriderFeedbackController {
     }
     @FXML
     void exit(ActionEvent event) throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/MainView.fxml"));
         Parent root = loader.load();
         Scene CurrentScene = ((Node) event.getSource()).getScene();

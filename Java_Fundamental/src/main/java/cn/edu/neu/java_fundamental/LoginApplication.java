@@ -41,8 +41,9 @@ public class LoginApplication extends Application {
 
 
         GlobalData.primaryStage=stage; // 设置全局变量
-        stage.setTitle("登录");
+        stage.setTitle("东软环境监督平台-登录");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
     }
