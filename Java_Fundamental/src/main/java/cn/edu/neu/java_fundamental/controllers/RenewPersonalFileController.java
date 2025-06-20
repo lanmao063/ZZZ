@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -28,10 +29,17 @@ public class RenewPersonalFileController {
     void dochange(ActionEvent event) throws ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
         String newName = user_nameField.getText();
         String newPhoneNumber = phoneNumberField.getText();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         if (newName.isEmpty() || newPhoneNumber.isEmpty()) {
+            alert.setTitle("提示");
+            alert.setHeaderText("所有字段都必须填写");
+            alert.showAndWait();
             System.out.println("Fields cannot be empty.");
         }
         else if (newPhoneNumber.length() != 11 || !newPhoneNumber.matches("\\d+")) {
+            alert.setTitle("提示");
+            alert.setHeaderText("请填写正确的手机号码");
+            alert.showAndWait();
             System.out.println("Phone number must be 11 digits long and contain only numbers.");
         }
         else {
@@ -56,6 +64,9 @@ public class RenewPersonalFileController {
                 ObjectMapper mapper = new ObjectMapper();
                 mapper.writerWithDefaultPrettyPrinter().writeValue(targetFile,root);
                 System.out.println("User information file updated successfully.");
+                alert.setTitle("提示");
+                alert.setHeaderText("个人信息修改成功");
+                alert.showAndWait();
             }
         }
 

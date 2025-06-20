@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -29,21 +30,29 @@ public class RenewPasswordController {
 
     @FXML
     void dochange(ActionEvent event) {
-
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         String origin = originpwd.getText();
         String newPassword = newpwd.getText();
         String confirmPassword = confirmpwd.getText();
 
         if (origin.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+            alert.setTitle("提示");
+            alert.setHeaderText("所有字段都必须填写");
+            alert.showAndWait();
             System.out.println("All fields must be filled out.");
             return;
         }
 
         if (!newPassword.equals(confirmPassword)) {
+            alert.setTitle("提示");
+            alert.setHeaderText("确认密码与新密码不匹配");
+            alert.showAndWait();
             System.out.println("New password and confirmation do not match.");
             return;
         }
         if (newPassword.length() < 6) {
+            alert.setTitle("提示");
+            alert.setHeaderText("新密码必须至少6个字符长");
             System.out.println("New password must be at least 6 characters long.");
             return;
         }
@@ -76,7 +85,9 @@ public class RenewPasswordController {
                 }
                 System.out.println("User information file updated successfully.");
             }
-
+            alert.setTitle("提示");
+            alert.setHeaderText("密码已修改");
+            alert.showAndWait();
             System.out.println("Password changed successfully!");
 
         }
