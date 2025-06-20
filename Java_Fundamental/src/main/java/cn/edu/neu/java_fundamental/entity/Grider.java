@@ -18,6 +18,8 @@ public class Grider extends Supervisor {
         this.isOnline = b;
     }
 
+
+
     public boolean getIsOnline()
     {
         return isOnline;

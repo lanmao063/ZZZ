@@ -1,6 +1,8 @@
 package cn.edu.neu.java_fundamental.controllers;
 
 import cn.edu.neu.java_fundamental.LoginApplication;
+import cn.edu.neu.java_fundamental.dao.Griderdao;
+import cn.edu.neu.java_fundamental.entity.Grider;
 import cn.edu.neu.java_fundamental.mynode.AsideMenuButton;
 import cn.edu.neu.java_fundamental.mynode.desc.AsideMenuButtonInfo;
 import cn.edu.neu.java_fundamental.util.FXMLTools;
@@ -40,7 +42,7 @@ public class MainViewController {
     private Label personalfiletag;
 
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException {
         initTag();
         if (Objects.equals(GlobalData.USER_ROLE, "Administrator")) {
             System.out.println("Loading Administrator View");
@@ -58,7 +60,24 @@ public class MainViewController {
                 AsideMenu.getChildren().add(btn);
             }
             GlobalData.mainViewController = this;
-
+            if("!".equals(((Grider)GlobalData.CURRENT_USER).getAbsentReason())){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("警告");
+                alert.setHeaderText("您有请假申请被驳回！请联系管理员");
+                alert.showAndWait();
+                ((Grider) GlobalData.CURRENT_USER).setAbsentReason("。。。");
+                Griderdao griderdao = new Griderdao();
+                griderdao.updateGrider((Grider) GlobalData.CURRENT_USER);
+            }
+            if (!((Grider) GlobalData.CURRENT_USER).getIsOnline()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("提示");
+                alert.setHeaderText("您的请假申请被通过了，恭喜您。");
+                alert.showAndWait();
+                ((Grider) GlobalData.CURRENT_USER).setAbsentReason("，，，");
+                Griderdao griderdao = new Griderdao();
+                griderdao.updateGrider((Grider) GlobalData.CURRENT_USER);
+            }
         } else if (Objects.equals(GlobalData.USER_ROLE, "Supervisor")) {
             System.out.println("Loading Supervisor View");
             AsideMenu.getChildren().clear();
