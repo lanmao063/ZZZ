@@ -8,27 +8,28 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.RegisterController">
+<GridPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.RegisterController">
   <columnConstraints>
     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="308.0" minWidth="0.0" prefWidth="0.0" />
-    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="456.0" minWidth="10.0" prefWidth="400.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="700.0" minWidth="10.0" prefWidth="604.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="63.0" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="63.0" valignment="CENTER" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="63.0" valignment="CENTER" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="48.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="57.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="65.0" valignment="CENTER" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="66.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button fx:id="registbutton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#doregist" prefHeight="47.0" prefWidth="129.0" text="注册" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-      <TextField fx:id="user_phonenumber" prefHeight="45.0" prefWidth="456.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <PasswordField fx:id="user_password" prefHeight="45.0" promptText="不少于6位" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button fx:id="registbutton" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#doregist" prefHeight="36.0" prefWidth="119.0" text="注册" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+      <TextField fx:id="user_phonenumber" prefHeight="38.0" prefWidth="604.0" promptText="手机号" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <PasswordField fx:id="user_password" prefHeight="45.0" promptText="密码不少于六位" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <font>
             <Font size="15.0" />
          </font></PasswordField>
@@ -36,37 +37,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Label prefHeight="56.0" prefWidth="244.0" text="新用户注册">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" prefHeight="27.0" prefWidth="101.0" text="用户名：" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" prefHeight="27.0" prefWidth="101.0" text="手机号：" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" prefHeight="27.0" prefWidth="101.0" text="密 码：" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" prefHeight="27.0" prefWidth="101.0" text="确认密码：" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" prefHeight="27.0" prefWidth="101.0" text="性 别：" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="user_name" prefHeight="45.0" prefWidth="456.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="user_name" prefHeight="39.0" prefWidth="604.0" promptText="用户名" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <RadioButton maxWidth="100.0" mnemonicParsing="false" text="男" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
          <toggleGroup>
             <ToggleGroup fx:id="user_sex" />
@@ -80,5 +51,11 @@
             <Font size="14.0" />
          </font>
       </RadioButton>
+      <HBox prefHeight="46.0" prefWidth="604.0" GridPane.columnIndex="1">
+         <children>
+            <Label prefHeight="61.0" prefWidth="273.0" />
+            <Label prefHeight="69.0" prefWidth="183.0" text="用户注册" />
+         </children>
+      </HBox>
    </children>
 </GridPane>

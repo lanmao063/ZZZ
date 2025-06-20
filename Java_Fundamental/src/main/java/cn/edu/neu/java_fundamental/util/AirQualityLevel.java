@@ -85,4 +85,8 @@ public enum AirQualityLevel {
     public static AirQualityLevel getAQL_by_pollutant(double so2_concentration,double co_concentration,double spm_concentration){
         return getAQL_by_aqi(AQI_Calculator.calculateAQI_forAllPollutants(so2_concentration,co_concentration,spm_concentration));
     }
+
+    public int getLevel() {
+        return aql_id;
+    }
 }

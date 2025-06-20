@@ -3,6 +3,7 @@ package cn.edu.neu.java_fundamental.controllers;
 import cn.edu.neu.java_fundamental.dao.SupervisorSubmit;
 import cn.edu.neu.java_fundamental.entity.AirQualityDataWrittenBySupervisor;
 import cn.edu.neu.java_fundamental.util.AirQualityLevel;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -19,7 +20,7 @@ public class HistoryController {
 
 
     @FXML
-    private TableColumn<AirQualityDataWrittenBySupervisor, AirQualityLevel> h_aqi;
+    private TableColumn<AirQualityDataWrittenBySupervisor, String> h_aqi;
 
     @FXML
     private TableColumn<AirQualityDataWrittenBySupervisor, String> h_area;
@@ -39,7 +40,11 @@ public class HistoryController {
     @FXML
     private TableView<AirQualityDataWrittenBySupervisor> tabelview;
     public void initialize() {
-        h_aqi.setCellValueFactory(new PropertyValueFactory<>("AQL"));
+        h_aqi.setCellValueFactory(cellData -> {
+            AirQualityLevel aql = cellData.getValue().getAQL();
+            String levelNum = (aql != null) ? String.valueOf(aql.getLevel()) : "未知";
+            return new SimpleStringProperty(levelNum);
+        });
         h_date.setCellValueFactory(new PropertyValueFactory<>("date"));
         h_province.setCellValueFactory(new PropertyValueFactory<>("province"));
         h_city.setCellValueFactory(new PropertyValueFactory<>("city"));

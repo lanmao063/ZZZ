@@ -88,7 +88,7 @@ public class ChooseAQI_Controller {
         for(Button bt : buttons){
             bt.setStyle("-fx-min-width:15px;-fx-min-height:15px;-fx-pref-width:15px;-fx-pref-height:15px;-fx-max-width:15px;-fx-max-height:15px;-fx-background-radius:50%");
         }
-        ClickedButton.setStyle("-fx-background-color: #28c8f5;-fx-min-width:15px;-fx-min-height:15px;-fx-pref-width:15px;-fx-pref-height:15px;-fx-max-width:15px;-fx-max-height:15px;-fx-background-radius:50%");
+        ClickedButton.setStyle("-fx-background-color: #051edd;-fx-min-width:15px;-fx-min-height:15px;-fx-pref-width:15px;-fx-pref-height:15px;-fx-max-width:15px;-fx-max-height:15px;-fx-background-radius:50%");
     }
 
     @FXML
@@ -116,6 +116,7 @@ public class ChooseAQI_Controller {
         airQualityDataWrittenBySupervisor.setDate(formattedDate);
         airQualityDataWrittenBySupervisor.setAQL(AQL);
         airQualityDataWrittenBySupervisor.setText(text2);
+        airQualityDataWrittenBySupervisor.setProvince(province);
         SupervisorSubmit AQdao = new SupervisorSubmit();
         try {
             int i = AQdao.addAirQualityData(CURRENT_USER, airQualityDataWrittenBySupervisor);

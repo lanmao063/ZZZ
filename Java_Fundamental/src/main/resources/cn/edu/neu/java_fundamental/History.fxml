@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-
 <AnchorPane prefHeight="660.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.HistoryController">
    <children>
       <HBox prefHeight="35.0" prefWidth="1102.0">
@@ -17,12 +16,12 @@
       </HBox>
       <TableView fx:id="tabelview" layoutY="35.0" prefHeight="660.0" prefWidth="1100.0">
         <columns>
-          <TableColumn fx:id="h_aqi" prefWidth="75.0" text="污染等级" />
-          <TableColumn fx:id="h_date" prefWidth="116.02177429199219" text="日期" />
-            <TableColumn fx:id="h_province" prefWidth="92.79786682128906" text="省份" />
-            <TableColumn fx:id="h_city" prefWidth="112.20216369628906" text="城市" />
-            <TableColumn fx:id="h_area" prefWidth="195.78250122070312" text="地区" />
-            <TableColumn fx:id="h_text" prefWidth="507.9520568847656" text="具体内容" />
+          <TableColumn fx:id="h_aqi" prefWidth="65.5" text="污染等级" />
+          <TableColumn fx:id="h_date" minWidth="0.0" prefWidth="153.0" text="日期" />
+            <TableColumn fx:id="h_province" minWidth="0.0" prefWidth="134.0" text="省份" />
+            <TableColumn fx:id="h_city" minWidth="8.5" prefWidth="118.5" text="城市" />
+            <TableColumn fx:id="h_area" prefWidth="139.0" text="地区" />
+            <TableColumn fx:id="h_text" prefWidth="491.0" text="具体内容" />
         </columns>
       </TableView>
    </children>
