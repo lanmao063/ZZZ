@@ -55,11 +55,6 @@ public class LoginController {
         try {
             LoginTool loginTool = new LoginTool();
             if (loginTool.login(phone_number, pwd)) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("提示");
-                alert.setHeaderText("登录成功");
-                alert.showAndWait();
-                System.out.println("登录成功");
                 FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("MainView.fxml"));
                 BorderPane borderPane = (BorderPane) fxmlLoader.load();
                 Scene scene = new Scene(borderPane, GlobalData.WIDTH, GlobalData.HEIGHT);
