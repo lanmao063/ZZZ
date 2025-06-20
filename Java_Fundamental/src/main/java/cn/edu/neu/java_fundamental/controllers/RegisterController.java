@@ -8,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -22,8 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.*;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
+
 import javafx.scene.control.ToggleGroup;
 
 
@@ -74,6 +70,10 @@ public class RegisterController {
                     try {
                         int i = dao.addSupervisor(supervisor);
                         if (i > 0) {
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("提示");
+                            alert.setHeaderText("注册成功");
+                            alert.showAndWait();
                             System.out.println("注册成功");
                             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/cn/edu/neu/java_fundamental/login.fxml"));
                             BorderPane borderPane = fxmlLoader.load();
@@ -93,28 +93,42 @@ public class RegisterController {
         }
         private boolean isValied() {
             String name = user_name.getText();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             if (name.isEmpty()) {
-                System.out.println("用户名不能为空");
+                alert.setTitle("提示");
+                alert.setHeaderText("用户名不能为空");
+                alert.showAndWait();
                 return false;
             }
             String phoneNumber = user_phonenumber.getText();
             if (phoneNumber.length() != 11 || !phoneNumber.matches("\\d+")) {
-                System.out.println("请输入正确的手机号");
+                alert.setTitle("提示");
+                alert.setHeaderText("请输入正确的手机号");
+                user_phonenumber.clear();
+                alert.showAndWait();
                 return false;
             }
             String password = user_password.getText();
             if ((password.length() < 6)) {
-                System.out.println("密码长度不能小于6位");
+                alert.setTitle("提示");
+                alert.setHeaderText("密码长度不能小于6位");
+                user_password.clear();
+                alert.showAndWait();
                 return false;
             }
             String passworda = user_passworda.getText();
             if (!password.equals(passworda)) {
-                System.out.println("两次输入的密码不一致");
+                alert.setTitle("提示");
+                alert.setHeaderText("两次输入的密码不一致");
+                user_password.clear();
+                user_passworda.clear();
+                alert.showAndWait();
                 return false;
             }
             Toggle selectedToggle = user_sex.getSelectedToggle();
             if (selectedToggle == null) {
-                System.out.println("请选择性别");
+                alert.setTitle("提示");
+                alert.setHeaderText("请选择性别");
                 return false;
             }
             return true;

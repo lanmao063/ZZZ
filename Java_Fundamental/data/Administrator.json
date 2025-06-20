@@ -1,4 +1,1 @@
-[{"id":"114514","password":"1919810","name":"奶龙","sex":null,"score":0},
-  {"id":"11","password":"1","name":"test","sex":null,"score":0},
-  {"id":"99900011222","password":"778899","name":"礼包龙","sex":null,"score":0},
-  {"id":"33344455666","password":"001122","name":"贝利亚","sex":null,"score":0}]
+[{"id":"114514","password":"1919810","name":"奶龙","sex":null,"score":0,"territory":null},{"id":"11","password":"1","name":"test","sex":null,"score":0,"territory":null},{"id":"99900011222","password":"778899","name":"礼包龙","sex":null,"score":0,"territory":null},{"id":"33344455666","password":"001122","name":"贝利亚","sex":null,"score":0,"territory":null},{"id":"222","password":"555","name":"111","sex":null,"score":0,"territory":"null"}]

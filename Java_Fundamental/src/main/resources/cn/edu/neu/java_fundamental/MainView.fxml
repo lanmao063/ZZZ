@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.MainViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.MainViewController">
    <top>
       <HBox prefHeight="68.0" prefWidth="1360.0" style="-fx-background-color: #588BAF;" BorderPane.alignment="CENTER">
          <children>
@@ -18,13 +14,17 @@
                </font>
             </Label>
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Label fx:id="personalfiletag" alignment="CENTER_RIGHT" prefHeight="68.0" prefWidth="957.0" text="早上好，公众监督员默认用户">
+            <Label fx:id="personalfiletag" alignment="CENTER_RIGHT" prefHeight="68.0" prefWidth="705.0" text="早上好，公众监督员默认用户">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <HBox prefHeight="68.0" prefWidth="117.0" />
-            <Button fx:id="personal_btn" mnemonicParsing="false" onAction="#dopersonal" prefHeight="68.0" prefWidth="224.0" style="-fx-background-color: #588BAF;" text="个人空间">
+            <Button mnemonicParsing="false" onAction="#doexit" prefHeight="68.0" prefWidth="133.0" style="-fx-background-color: #588BAF;" text="退出登录">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="personal_btn" mnemonicParsing="false" onAction="#dopersonal" prefHeight="68.0" prefWidth="156.0" style="-fx-background-color: #588BAF;" text="个人空间">
                <font>
                   <Font size="20.0" />
                </font>

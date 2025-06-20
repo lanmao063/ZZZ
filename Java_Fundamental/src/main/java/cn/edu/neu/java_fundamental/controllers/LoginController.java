@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -18,7 +19,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
-
 
 
 import java.io.IOException;
@@ -46,10 +46,14 @@ public class LoginController {
     void doLogin(ActionEvent event) {
         String phone_number = id.getText();
         String pwd = password.getText();
-        Supervisordao dao= new Supervisordao();
+        Supervisordao dao = new Supervisordao();
         try {
             LoginTool loginTool = new LoginTool();
-            if (loginTool.login(phone_number,pwd)) {
+            if (loginTool.login(phone_number, pwd)) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("提示");
+                alert.setHeaderText("登录成功");
+                alert.showAndWait();
                 System.out.println("登录成功");
                 FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("MainView.fxml"));
                 BorderPane borderPane = (BorderPane) fxmlLoader.load();
@@ -69,8 +73,15 @@ public class LoginController {
                 GlobalData.primaryStage.setTitle("东软环保公众监督系统");
                 GlobalData.primaryStage.centerOnScreen();
                 GlobalData.primaryStage.show();
-            } else
+            } else {
                 System.out.println("登录失败，请检查用户名或密码");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("提示");
+                alert.setHeaderText("登录失败，请检查用户名或密码");
+                id.clear();
+                password.clear();
+                alert.showAndWait();
+            }
 
         } catch (IOException | ClassNotFoundException | InvocationTargetException | NoSuchMethodException |
                  InstantiationException | IllegalAccessException e) {
@@ -94,7 +105,7 @@ public class LoginController {
             System.err.println("Current resource URL using ClassLoader: " + LoginApplication.class.getClassLoader().getResource("cn/edu/neu/java_fundamental/style.css"));
         }
 
-        Stage stage  = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("注册");
         stage.setWidth(700);
         stage.setHeight(500);
