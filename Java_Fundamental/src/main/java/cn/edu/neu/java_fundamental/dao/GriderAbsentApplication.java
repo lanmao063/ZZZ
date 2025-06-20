@@ -55,6 +55,14 @@ public class GriderAbsentApplication {
                         griderNode.get("id").asText().equals(grider.getId())) {
                     // 删除字段
                     ((ObjectNode) griderNode).remove("absentReason");
+                    ((ObjectNode) griderNode).remove("id");
+                    ((ObjectNode) griderNode).remove("password");
+                    ((ObjectNode) griderNode).remove("name");
+                    ((ObjectNode) griderNode).remove("sex");
+                    ((ObjectNode) griderNode).remove("score");
+                    ((ObjectNode) griderNode).remove("area");
+                    ((ObjectNode) griderNode).remove("isOnline");
+                    ((ObjectNode) griderNode).remove("gridInfo");
                 }
             }
         }
