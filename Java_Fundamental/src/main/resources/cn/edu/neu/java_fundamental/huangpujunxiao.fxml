@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.edu.neu.java_fundamental.controllers.eggController">
+   <children>
+      <Label prefHeight="100.0" prefWidth="500.0" text="黄埔军校（huang pu jun xiao)">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <Label layoutY="100.0" prefHeight="68.0" prefWidth="200.0" text="主要角色：">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <VBox layoutX="2.0" layoutY="168.0" prefHeight="600.0" prefWidth="1360.0" spacing="20.0">
+         <children>
+            <Label prefHeight="80.0" prefWidth="1360.0" text="智十冷竹（zslz）-cs2时期传奇狙击手，快如闪电般的瞬狙，人类极限样的反应，对场上局势洞若观火，对细微之处明察秋毫，闪光大王，团队智脑，多智近妖，残局之神">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="80.0" prefWidth="1360.0" text="在逃英俊机长（ztyjjz)-偶有发挥的出色步枪手，传奇手🦅王">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="80.0" prefWidth="1360.0" text="w--------（w)-偶有发挥的出色步枪手，a大内格夫大王，呲烟的最好使用者">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="80.0" prefWidth="1360.0" text="陈泽一生之敌(czyszd)-偶有发挥的出色副狙，沙二悬梯脑溢血患者，机械降神使用者">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="80.0" prefWidth="1360.0" text="songhaobigmouse(shbm)-偶有发挥的出色步枪手，勤恳的道具学者，a1跑大大王">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefHeight="100.0" prefWidth="522.0" />
+                  <Button mnemonicParsing="false" onAction="#doexit" prefHeight="81.0" prefWidth="241.0" text="退出">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

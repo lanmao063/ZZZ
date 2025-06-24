@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Griderdao extends Userdao<Grider>{
+    @Override
+    protected Class<Grider> getUserClass() {
+        return Grider.class;
+    }
     private static final String GRIDER_FILE = "Grider.json";
     private ArrayList<Grider> griders=new ArrayList<>();
     public List<Grider> getAllGriders(){
@@ -34,8 +38,5 @@ public class Griderdao extends Userdao<Grider>{
         return updateSingleData(grider, GRIDER_FILE);
     }
 
-    @Override
-    protected Class<Grider> getUserClass() {
-        return Grider.class;
-    }
+
 }

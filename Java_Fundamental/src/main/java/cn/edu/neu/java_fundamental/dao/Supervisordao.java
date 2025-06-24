@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Supervisordao extends Userdao<Supervisor> {
+    @Override
+    protected Class<Supervisor> getUserClass() {
+        return Supervisor.class;
+    }
     private static final String SUPERVISOR_FILE="Supervisor.json";
     private ArrayList<Supervisor> supervisors=new ArrayList<>();
     public List<Supervisor> getAllSupervisors(){
@@ -37,10 +41,7 @@ public class Supervisordao extends Userdao<Supervisor> {
         return updateSingleData(supervisor,SUPERVISOR_FILE);
     }
 
-    @Override
-    protected Class<Supervisor> getUserClass() {
-        return Supervisor.class;
-    }
+
 }
 
 

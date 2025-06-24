@@ -1,1 +1,15 @@
-[{"id":"11111111111","password":"111111","name":"小明","sex":"男","score":100,"territory":null},{"id":"14589632105","password":"100000","name":"曹郑源","sex":"男","score":0,"territory":"null"}]
+[ {
+  "id" : "11111111111",
+  "password" : "111111",
+  "name" : "小李",
+  "sex" : "男",
+  "score" : 100,
+  "territory" : null
+}, {
+  "id" : "14589632105",
+  "password" : "100000",
+  "name" : "曹郑源",
+  "sex" : "男",
+  "score" : 0,
+  "territory" : "null"
+} ]

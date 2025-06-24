@@ -91,7 +91,6 @@ public class MainViewController {
 
 
     }
-
     public void initTag() {
         personalfiletag.setText(initTime() + "，" + ChineseRoleName(GlobalData.USER_ROLE) + GlobalData.CURRENT_USER.getName());
     }
